@@ -1,0 +1,54 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 12, 2022, 1:10:04 PM
+    Author     : Massi
+*/
+
+.footer{
+    float: left;
+    width: 100%;
+    background-color: #08844c;
+}
+.separator{
+    background-color: white;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 1px;
+    border-width: 0px;
+}
+.cookies, .info{
+    font-size: 16px;
+    text-align: justify;
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+}
+.copy{
+    float: left;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 10px;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.author{
+    float: right;
+    font-size: 16px;
+    text-align: right;
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.bottom-anchor{
+    color: white;
+}
+.bottom-anchor:hover{
+    text-decoration: underline;
+}

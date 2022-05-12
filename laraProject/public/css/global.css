@@ -1,0 +1,303 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 12, 2022, 12:39:15 PM
+    Author     : Massi
+*/
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #e3e6e8;
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    background-color: white;
+    border-radius: 10px;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-bottom: 20px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+.large-container{
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.full-container{
+    width: 100%;
+    margin: 0px;
+
+}
+.title{
+    text-align: center;
+    color: blue;
+    font-size: 35px;
+    font-weight: 100;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+.container-content{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.input, .input_private, .option{
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    height: 43px;
+    max-height: 100px;
+    -moz-appearance: none; 
+    -webkit-appearance: none;
+    appearance: none; 
+    color: white;
+    border-width: 1px;
+    border-color: blue;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: blue;
+    float: left;
+}
+.search_input{
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    border-width: 1px;
+    border-color: blue;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: blue;
+    float: left;
+}
+.input-checkbox-label{
+    margin: 5px;
+    font-size: 18px;
+    color: blue;
+    float: left;
+}
+.input-checkbox{
+    margin: 10px;
+    float: left;
+}
+.select:hover{
+    cursor: pointer;
+}
+.checkbox{
+    float: left;
+    width: 18px;
+    height: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-color: blue;
+    border-width: 1px;
+    border-style: solid;
+}
+.checkbox:hover{
+    cursor: pointer;
+}
+.checkbox_text{
+    float: left;
+    width: calc(100% - 32px);
+    font-size: 16px;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: black;
+}
+.search_submit{
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(10% - 10px);
+    border-width: 1px;
+    border-color: red;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red;
+    transition: background-color .2s, color .2s;
+    text-align: center;
+    float: left;
+}
+.submit{
+    height: 43px;
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    border-width: 1px;
+    border-color: red;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    color: red;
+    transition: background-color .2s, color .2s;
+    text-align: center;
+    float: left;
+    line-height: 34px;
+}
+.submit:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+.search_submit:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+.search_submit:hover .button_image{
+  	transition: transform .2s;
+	transform: scale(1.3);
+}
+.confirm-submit{
+    font-weight: 800;
+    color: blue;
+    border-color: blue;
+}
+.confirm-submit:hover{
+    color: white;
+    background-color: blue;
+}
+.button_image{
+    height: 19px;
+    width: auto;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  	transition: transform .2s;
+}
+.link_text{
+    color: blue;
+}
+.link_text:hover{
+    text-decoration: underline;
+}
+.alternative_link{
+    color: blue;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+.alternative_link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.alternative_submit{
+    border-color: orange;
+    color: orange;
+}
+.alternative_submit:hover{
+    color: white;
+    background-color: orange;
+}
+.content_separator{
+    background-color: blue;
+    width: 100%;
+    height: 1px;
+    border-width: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.link_text{
+    width: 100%;
+    padding: 5px;
+    float: left;
+    color: blue;
+    font-size: 14px;
+    font-weight: 300;
+}
+.link_text:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.with-refresh-button{
+    width: calc(100% - 68px);
+}
+.refresh-button{
+    width: 43px;
+    height: 43px;
+    margin-left: 10px;
+    margin-top: 5px;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid blue;
+    background-color: white;
+    color: blue;
+    font-size: 24px;
+}
+.refresh-button:hover{
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .container-content{
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+@media only screen and (min-width: 601px) {
+    .middable_input{
+        width: calc(50% - 10px);
+    }
+    .thirdable_input{
+        width: calc(33.33% - 10px);
+    }
+    .middable_submit{
+        width: calc(50% - 10px);
+    }
+    .thirdable_submit{
+        width: calc(33.33% - 10px);
+    }
+    .fouthable_input{
+        width: calc(25% - 10px);
+    }
+}
