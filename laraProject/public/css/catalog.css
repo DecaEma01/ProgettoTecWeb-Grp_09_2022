@@ -1,0 +1,81 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 16, 2022, 4:43:37 PM
+    Author     : Massi
+*/
+
+.house-content{
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 20px;
+    float: left;
+    box-shadow: #08844c 0 1px 2px -1px,rgba(0, 0, 0, .14) 0 1px 2px 0,rgba(0, 0, 0, .12) 0 1px 3px 0;
+    border-radius: 5px;
+    font-family: Arial;
+    font-size: 20px;
+}
+.house-content:hover{
+    cursor: pointer;
+    box-shadow: #08844c 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+}
+.house-content:hover .house-image{
+    transition: transform .3s;
+}
+.house-title{
+    width: 100%;
+    margin: 20px;
+    color: rgba(8, 132, 76, 1);
+}
+.house-info{
+    width: calc(100% - 20px);
+    height: 200px;
+    margin: 10px;
+    float: left;
+}
+.house-image{
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+    padding: 20px;
+    float: left;
+    transition: transform .3s;
+}
+.house-allinfo{
+    position: relative;
+    width: calc(100% - 200px);
+    height: 200px;
+    margin: 0px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    float: left;
+    border-radius: 5px;
+    color: rgba(8, 132, 76, 1);
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.house-detail{
+    margin: 10px;
+    font-style: italic;
+}
+#house-price{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 5px;
+    float: right;
+    border: 1px solid rgba(8, 132, 76, 1);
+    border-radius: 5px;
+    font-style: normal;
+}
+@media only screen and (max-width: 600px){
+    .house-allinfo{
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width: 601px){
+    
+}

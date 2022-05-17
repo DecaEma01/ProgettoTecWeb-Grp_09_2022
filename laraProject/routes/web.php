@@ -12,9 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('global');
 });
 
-Route::get('homepage/', function () {
+Route::get('index/', function () {
     return view('global');
+});
+
+Route::get('login/', function () {
+    return view('login');
+});
+
+Route::get('signup/', function () {
+    return view('signup');
+});
+
+Route::get('profile/', function () {
+    return view('profile');
+});
+
+Route::get('catalog/', function () {
+    return view('catalog');
 });

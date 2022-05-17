@@ -13,20 +13,9 @@
         <div class="info">
             Contatti:
         <br>
-        <ul>
-            <li><a href="mailto: berti@bertiferramenta.it" class="bottom-anchor">Scrivici a berti@bertiferramenta.it</a></li>
-            <li><a href="tel: 07178528" class="bottom-anchor">Chiamaci allo 07178528</a></li>
-        </ul>
+            <li><a href="mailto: house@housefinder.it" class="bottom-anchor">Scrivici a house@housefinder.it</a></li>
+            <li><a href="tel: 07178528" class="bottom-anchor">Chiamaci allo 07189639</a></li>
         <br>
-        Dove Siamo:
-        <br>
-        <ul>
-            <li>
-                <a href="https://goo.gl/maps/8Yb66bMCCPUFJxDr7" target="new" class="bottom-anchor">
-                    Via Einaudi 1Z, Castelfidardo (AN)
-                </a>
-            </li>
-        </ul>
         </div>
         <hr class="separator" />
         <div class="copy">&copy 2021 House Finder</div>
@@ -35,9 +24,17 @@
             <a href="https://www.linkedin.com/in/massimilianopiccinini" target="new" class="bottom-anchor">
             Massimiliano Piccinini
             </a>
-            &
+            -
             <a href="https://www.linkedin.com/in/michele-larocca-12a09a1b4" target="new" class="bottom-anchor">
             Michele Larocca
+            </a>
+            -
+            <a href="https://www.linkedin.com/in/emanuele-de-caro-096a3223a" target="new" class="bottom-anchor">
+            Emanuele De Caro
+            </a>
+            -
+            <a href="https://it.linkedin.com/in/geraldine-estephany-guzman-morales-6622341a6" target="new" class="bottom-anchor">
+            Geraldine Guzman
             </a>
         </div>
     </div>

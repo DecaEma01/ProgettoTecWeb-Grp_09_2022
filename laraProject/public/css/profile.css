@@ -1,0 +1,63 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 14, 2022, 11:24:02 AM
+    Author     : Massi
+*/
+
+.profile_button{
+    line-height: 34px;
+    border-color: #08844c;
+    color: black;
+    font-size: 22px;
+    text-align: left;
+}
+.profile_button:hover{
+    cursor: pointer;
+    background-color: #08844c;
+    color: white;
+}
+.profile_image_button{
+    float: left;
+    height: 35px;
+    width: 35px;
+    margin-right: 20px;
+}
+#profile-button-image-myhouses{
+    content: url("../media/address.png");
+}
+.profile_button:hover #profile-button-image-myhouses{
+    content: url("../media/addressW.png");
+}
+#profile-button-image-requests{
+    content: url("../media/requests.png");
+}
+.profile_button:hover #profile-button-image-requests{
+    content: url("../media/requestsW.png");
+}
+#profile-button-image-user{
+    content: url("../media/user.png");
+}
+.profile_button:hover #profile-button-image-user{
+    content: url("../media/userW.png");
+}
+#profile-button-image-chat{
+    content: url("../media/chat.png");
+}
+.profile_button:hover #profile-button-image-chat{
+    content: url("../media/chatW.png");
+}
+#profile-button-image-stats{
+    content: url("../media/stats.png");
+}
+.profile_button:hover #profile-button-image-stats{
+    content: url("../media/statsW.png");
+}
+#profile-button-image-faq{
+    content: url("../media/faq.png");
+}
+.profile_button:hover #profile-button-image-faq{
+    content: url("../media/faqW.png");
+}

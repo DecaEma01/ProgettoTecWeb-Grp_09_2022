@@ -16,7 +16,7 @@
     <a href="#d"><div class="subitem">F.A.Q</div></a>
 </div>
 
-<article id="a">
+<article id="a" class="home-article">
     <div class="p-container">
     <h1>CHI SIAMO</h1>
         <p>HouseFinder è una start-up nata nel 2022 come spin-off dell'università politecnica delle marche,
@@ -26,7 +26,7 @@
     </div>
 </article>
 
-<article id="b">
+<article id="b" class="home-article">
     <div class="p-container">
         <h1>MISSIONE</h1>
 
@@ -37,7 +37,7 @@
     </div>
 </article>
 
-<article id="c">
+<article id="c" class="home-article">
     <div class="p-container">
         <h1>REGOLAMENTO D'USO</h1>
 
@@ -78,7 +78,7 @@
     </div>
 </article>
 
-<article id="d">
+<article id="d" class="home-article">
     <div class="p-container">
     <h1>F.A.Q</h1>
     <h2>Come posso pubblicare un annuncio? E quanto costa?</h2>
