@@ -18,7 +18,8 @@ class UTENTE extends Migration
             $table->integer('livello');
             $table->text('sesso')->nullable();
             $table->integer('eta')->nullable();
-            $table->text('email');
+            $table->text('email')->nullable();
+            $table->text('user');
             $table->text('password');
             $table->text('nome')->nullable();
             $table->text('cognome')->nullable();

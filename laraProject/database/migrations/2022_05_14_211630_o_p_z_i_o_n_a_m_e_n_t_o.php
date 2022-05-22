@@ -15,7 +15,7 @@ class OPZIONAMENTO extends Migration
     {
         Schema::create('opzionamento', function (Blueprint $table) {
             $table->bigIncrements('id_opz');//->primary();
-            $table->date('data_opz');
+            $table->unsignedBigInteger('data_opz');
             $table->unsignedBigInteger('id_casa');
             $table->unsignedBigInteger('id_locatario');
             $table->unsignedBigInteger('id_chat');

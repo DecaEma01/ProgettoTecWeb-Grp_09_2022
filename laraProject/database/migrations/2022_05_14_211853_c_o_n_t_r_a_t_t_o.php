@@ -15,7 +15,7 @@ class CONTRATTO extends Migration
     {
         Schema::create('contratto', function (Blueprint $table) {
             $table->bigIncrements('id_contratto');//->primary();
-            $table->date('data');
+            $table->unsignedBigInteger('data');
             $table->unsignedBigInteger('id_locatario');
             $table->unsignedBigInteger('id_locatore');
             $table->unsignedBigInteger('id_opz');

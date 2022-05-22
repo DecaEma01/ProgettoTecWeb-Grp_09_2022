@@ -18,8 +18,8 @@ class CASA extends Migration
             $table->text('regione');
             $table->text('via');
             $table->text('citta');
-            $table->date('data_inizio');
-            $table->date('data_fine');
+            $table->unsignedBigInteger('data_inizio');
+            $table->unsignedBigInteger('data_fine');
             $table->boolean('assegnata');
             $table->boolean('tipo');
             $table->float('prezzo');

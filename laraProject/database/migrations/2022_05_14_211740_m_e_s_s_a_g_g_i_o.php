@@ -15,7 +15,7 @@ class MESSAGGIO extends Migration
     {
         Schema::create('messaggio', function (Blueprint $table) {
             $table->bigIncrements('id_messaggio');//->primary();
-            $table->date('data_ora');
+            $table->unsignedBigInteger('data_ora');
             $table->text('testo');
             $table->unsignedBigInteger('id_mittente');
             $table->unsignedBigInteger('id_chat');
