@@ -18,7 +18,7 @@
             Da locatario puoi visualizzare l'intero catalogo delle case disponibili e metterti in contatto direttamente coi locatori
         </p>
         <p id="desc_locatore">
-            Da locatario puoi visualizzare l'intero catalogo delle case disponibili e metterti in contatto direttamente coi locatori
+            Da locatore puoi inserire le tue case e/o posti letto e metterti in contatto direttamente coi locatori eventualmente interessati
         </p>
 
         <!---dati locatario--->

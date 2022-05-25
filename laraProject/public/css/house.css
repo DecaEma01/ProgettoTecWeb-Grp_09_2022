@@ -1,0 +1,425 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 20, 2022, 9:42:54 PM
+    Author     : Massi
+*/
+
+.house-images-container{
+    width: 100%;
+}
+.house-item{
+    width: calc(20% - 20px);
+    margin: 10px;
+    padding-bottom: 5px;
+    border-width: 1px;
+    border-color: #08844c;
+    border-radius: 5px;
+    border-style: solid;
+
+}
+.house-item:hover .addhouse-image{
+    cursor: pointer;
+    /*transition: transform .2s;
+    transform: scale(1.15);*/
+}
+.house-image{
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    transition: transform .2s;
+    float: center;
+
+}
+
+.house-file{
+    display: none;
+    
+}
+
+.house-image-name{
+    text-align: center;
+    font-size: 13px;
+}
+@media only screen and (max-width: 600px){
+    .house-image-section{
+        width: 100%;
+    }
+    .house-image-container{
+        width: 100%;
+        height: auto;
+    }
+    .house-image-container-hover{
+        transform: scale(1);
+    }
+    .house-image-container:hover{
+        transform: scale(1);
+        cursor: default;
+    }
+    .house-other-images-container{
+        width: 100%;
+    }
+    .house-other-image{
+        width: calc(20% - 10px);
+        margin: 5px;
+    }
+    .house-details-section{
+        width: 100%;
+        margin: 0px;
+    }
+    .house-add-to-cart{
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+        margin-bottom: 10px;
+        text-align: left;
+        line-height: 35px;
+        font-size: 21px;
+    }
+    .house-modifica{
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+        margin-bottom: 10px;
+        text-align: left;
+        line-height: 35px;
+        font-size: 21px;
+    }
+    .house-dec{
+        margin-left: 35%;
+        margin-right: 35%;
+        text-align: left;
+        font-size: 21px;
+    }
+    .house-allinfo{
+        font-size: 18px;
+    }
+}
+
+.house-errorimg{
+    width: 100px;
+    height: 100px;
+}
+.house-content{
+    width: 84%;
+    margin-left: 8%;
+    margin-right: 8%;
+    background-color: clear;
+    height: auto;
+    margin-top: 50px;
+}
+.house-image-container{
+    padding-top: 30px;
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    margin-left: 0px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #08844c;
+    /*background-image: url("Media/Products/8.png");*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+    transition: transform .2s, border-color .2s;
+}
+.house-image-container-hover{
+    transition: transform .3s, border-top-color .3s, border-left-color .3s, border-right-color .3s, border-bottom-color .3s;;
+    transform: scale(1.2) translateX(10%) translateY(10%);
+    cursor: zoom-in;
+}
+.house-image-container:hover{
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: white;
+    border-bottom-color: white;
+    transition: transform .3s, border-top-color .3s, border-left-color .3s, border-right-color .3s, border-bottom-color .3s;;
+    transform: scale(1.65) translateX(20%) translateY(20%);
+    cursor: zoom-in;
+}
+.house-other-images-container{
+    width: 310px;
+    height: 70px;
+    margin-top: 35px;
+    margin-left: -5px;
+    margin-bottom: 100px;
+    float: left;
+}
+.house-other-image-container{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    margin-left: 6px;
+    margin-right: 6px;
+    transition: border-color .2s;
+}
+.house-other-image-container:hover{
+    border-color: black;
+    cursor: pointer;
+    transition: border-color .2s;
+}
+.house-image-section{
+    width: 300px;
+    height: auto;
+    float: left;
+}
+.house-other-image{
+    width: 55px;
+    height: 54px;
+    margin: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+.house-other-image:hover{
+    cursor: pointer;
+}
+.house-details-section{
+    margin-left: 50px;
+    margin-right: 8%;
+    float: left;
+    width: calc(84% - 350px);
+    color: black;
+    padding: 3px;
+}
+.house-name-container{
+    padding-top: 30px;
+    width: 100%;
+}
+.house-name{
+    font-size: 32px;
+    margin-bottom: 10px;
+    margin-right: 7px;
+    color: #08844c;
+    float: left;
+}
+#house-brand:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.house-dec{
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    height: 43px;
+    max-height: 100px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: white;
+    border-width: 1px;
+    border-color: #08844c;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #08844c;
+    float: left;
+}
+.house-availability{
+    font-size: 22px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.house-desc{
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: justify;
+    max-height: 172px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    -moz-box-shadow:    0px 0px 5px 0px #ccc;
+    -webkit-box-shadow: 0px 0px 5px 0px #ccc;
+    box-shadow:         0px 3px 20px #000000;
+}
+.house-desc:hover{
+    cursor: n-resize;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.house-category{
+    margin-right: 15px;
+    float: left;
+    padding: 0px;
+    font-size: 21px;
+    margin-bottom: 20px;
+    color: black;
+}
+.house-category:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.house-add-to-cart{
+    float: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: orange;
+    color: orange;
+    border-width: 2px;
+    transition: background-color .2s, color .2s, border-color .2s;
+}
+.house-option{
+    float: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #08844c;
+    color: #08844c;
+    border-width: 2px;
+    transition: background-color .2s, color .2s, border-color .2s;
+}
+.house-add-to-cart:hover{
+    background-color: orange;
+    border-color: orange;
+    color: white;
+    cursor: pointer;
+    transition: background-color .3s, color .3s, border-color .3s;
+}
+.house-option:hover{
+    background-color: #08844c;
+    border-color: #08844c;
+    color: white;
+    cursor: pointer;
+    transition: background-color .3s, color .3s, border-color .3s;
+}
+
+
+
+.checkbox-content{
+
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    height: 43px;
+    max-height: 100px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: white;
+    border-width: 1px;
+    border-color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #08844c;
+    float: left;
+}
+.text2{
+    float:left;
+}
+.checkbox2{
+    display: inline-block;
+    height: 24px;
+    margin-left: 6px;
+    color:#08844c;
+    font-size: 21px;
+}
+.text{
+    padding-top: 20;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px){
+    .house-image-section{
+        width: 100%;
+    }
+    .house-image-container{
+        width: 100%;
+        height: auto;
+    }
+    .house-image-container-hover{
+        transform: scale(1);
+    }
+    .house-image-container:hover{
+        transform: scale(1);
+        cursor: default;
+    }
+    .house-other-images-container{
+        width: 100%;
+    }
+    .house-other-image{
+        width: calc(20% - 10px);
+        margin: 5px;
+    }
+    .house-details-section{
+        width: 100%;
+        margin: 0px;
+    }
+    .house-add-to-cart{
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+        margin-bottom: 10px;
+        text-align: center;
+        line-height: 35px;
+        font-size: 21px;
+    }
+    .house-option{
+        float:center;
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+        margin-bottom: 10px;
+       
+        
+        line-height: 35px;
+        font-size: 21px;
+    }
+    .house-dec{
+        margin-left: 35%;
+        margin-right: 35%;
+        text-align: center;
+        font-size: 21px;
+    }
+  
+}
+@media only screen and (max-width: 600px){
+    .house-allinfo{
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width: 601px){
+
+}

@@ -1,0 +1,207 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 20, 2022, 9:40:29 PM
+    Author     : Massi
+*/
+
+.house-name{
+    font-size: 32px;
+    margin-bottom: 10px;
+    margin-right: 7px;
+    color: #08844c;
+    float: left;
+}
+
+.house-dec{
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    height: 43px;
+    max-height: 100px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: white;
+    border-width: 1px;
+    border-color: #08844c;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #08844c;
+    float: left;
+}
+
+
+.house-modifica{
+    float: left;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #08844c;
+    color: #08844c;
+    border-width: 2px;
+    transition: background-color .2s, color .2s, border-color .2s;
+}
+.house-modificai:hover{
+    background-color: #08844c;
+    border-color: #08844c;
+    color: white;
+    cursor: pointer;
+    transition: background-color .3s, color .3s, border-color .3s;
+}
+
+
+
+.checkbox-content{
+
+    border-radius: 5px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    height: 43px;
+    max-height: 100px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: white;
+    border-width: 1px;
+    border-color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #08844c;
+    float: left;
+}
+
+.checkbox2{
+    display: inline-block;
+    height: 24px;
+    margin-left: 6px;
+    color:#08844c;
+    font-size: 21px;
+}
+.text{
+    padding-top: 20;
+    font-weight: bold;
+}
+.addhouse-images-container{
+    width: 100%;
+    float: center;
+    padding-left: 40%;
+}
+.addhouse-item{
+    
+    width: calc(20% - 20px);
+    margin: 10px;
+    padding-bottom: 5px;
+    float: center;
+    border-width: 1px;
+    border-color: #08844c;
+    border-radius: 5px;
+    border-style: solid;
+
+}
+.addhouse-item:hover .addhouse-image{
+    cursor: pointer;
+    /*transition: transform .2s;
+    transform: scale(1.15);*/
+}
+.addhouse-image{
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    transition: transform .2s;
+    float: center;
+
+}
+
+.addhouse-file{
+    display: none;
+    
+}
+
+.addhouse-image-name{
+    text-align: center;
+    font-size: 13px;
+}
+@media only screen and (max-width: 600px){
+    .house-image-section{
+        width: 100%;
+    }
+    .house-image-container{
+        width: 100%;
+        height: auto;
+    }
+    .house-image-container-hover{
+        transform: scale(1);
+    }
+    .house-image-container:hover{
+        transform: scale(1);
+        cursor: default;
+    }
+    .house-other-images-container{
+        width: 100%;
+    }
+    .house-other-image{
+        width: calc(20% - 10px);
+        margin: 5px;
+    }
+    .house-details-section{
+        width: 100%;
+        margin: 0px;
+    }
+    .house-add-to-cart{
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+        margin-bottom: 10px;
+        text-align: left;
+        line-height: 35px;
+        font-size: 21px;
+    }
+    .house-modifica{
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+        margin-bottom: 10px;
+        text-align: left;
+        line-height: 35px;
+        font-size: 21px;
+    }
+    .house-dec{
+        margin-left: 35%;
+        margin-right: 35%;
+        text-align: left;
+        font-size: 21px;
+    }
+  
+}
+
+@media only screen and (max-width: 600px){
+    .house-allinfo{
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width: 601px){
+
+}

@@ -8,5 +8,5 @@ class Casa extends Model
 {
     protected $table= 'casa';
     protected $primaryKey = 'id_casa';
-    public $timestamps = 'false';
+    public $timestamps = false;
 }

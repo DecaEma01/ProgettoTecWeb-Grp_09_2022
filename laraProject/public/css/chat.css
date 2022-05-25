@@ -1,0 +1,61 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 19, 2022, 8:42:43 AM
+    Author     : Massi
+*/
+.chat-newmessage{
+    width: 100%;
+    margin-bottom: 50px;
+    float: left;
+}
+
+.search_input{
+    width: calc(100% - 50px);
+    margin: 1.75px;
+}
+
+.search_submit{
+    width: 43px;
+    height: 43px;
+    margin: 1.75px;
+}
+
+.chat-container{
+    width: 100%;
+    margin: 10px;
+    float: left;
+}
+.chat-message{
+    position: relative;
+    display: inline-block;
+    width: auto;
+    min-width: 100px;
+    max-width: 60%;
+    height: auto;
+    padding: 10px;
+    padding-bottom: 20px;
+    border: 1px solid #08844c;
+    border-radius: 5px;
+}
+#chat-message-me{
+    float: right;
+}
+#chat-message-you{
+    float: left;
+}
+.chat-text{
+    font-size: 21px;
+    color: black;
+    text-align: left;
+}
+.chat-date{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 11px;
+    color: darkgray;
+    text-align: right;
+}

@@ -8,5 +8,5 @@ class Contratto extends Model
 {
     protected $table= 'contratto';
     protected $primaryKey = 'id_contratto';
-    public $timestamps = 'false';
+    public $timestamps = false;
 }

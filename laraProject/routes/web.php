@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('global');
+    return view('index');
 });
 
 Route::get('index/', function () {
-    return view('global');
+    return view('index');
 });
 
 Route::get('login/', function () {
@@ -33,4 +33,42 @@ Route::get('profile/', function () {
 
 Route::get('catalog/', function () {
     return view('catalog');
+});
+
+Route::get('myinfo/', function () {
+    return view('myinfo');
+});
+
+Route::get('stats/', function () {
+    return view('stats');
+});
+
+Route::get('previews/', function () {
+    return view('previews');
+});
+
+Route::get('chat/', function () {
+    return view('chat');
+});
+
+Route::get('faqs/', function () {
+    return view('faqs');
+});
+
+Route::get('/faq/{id_faq}', 'FaqsController@showFaq')
+        ->name('faq');
+
+Route::post('/admin/updatefaq', 'FaqsController@updateFaq')
+        ->name('update-faq');
+
+Route::get('house/', function () {
+    return view('house');
+});
+
+Route::get('add-house/', function () {
+    return view('add-house');
+});
+
+Route::get('edit-house/', function () {
+    return view('edit-house');
 });

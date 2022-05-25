@@ -24,6 +24,8 @@ function showRad2(){
         element = elementsPri[i];
         element.style.display = "none";
     }
+    document.getElementById("desc_locatario").style.display = "none";
+    document.getElementById("desc_locatore").style.display = "block";
     /*elements = document.getElementsByClassName("input_locatore");
     for (var i = 0, len = elements.length; i < len; i++){
         element = elements[i];

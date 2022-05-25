@@ -1,7 +1,19 @@
-<?php
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+        <title>House Finder</title>
 
+        <!-- Fonts -->
+
+        <!-- Styles -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}" >
+    </head>
+    <body>
+        @include('menu')
+        @include('sections')
+        @include('footer')
+    </body>
+</html>

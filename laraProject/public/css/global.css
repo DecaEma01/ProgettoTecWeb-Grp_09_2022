@@ -72,20 +72,32 @@ a{
     color: #08844c;
     float: left;
 }
+.input::placeholder{
+    color: #08844c;
+    opacity: 0.5;
+}
+
+.input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+.input::-ms-input-placeholder { /* Microsoft Edge */
+  color: red;
+}
 .search_input{
     background-color: white;
     border-radius: 5px;
     border-style: solid;
     width: calc(100% - 10px);
     border-width: 1px;
-    border-color: blue;
+    border-color: #08844c;
     font-size: 18px;
     margin: 5px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    color: blue;
+    color: #08844c;
     float: left;
 }
 .input-checkbox-label{
@@ -98,6 +110,10 @@ a{
     margin: 10px;
     float: left;
 }
+.textarea-input{
+    height: 75px;
+    max-height: 200px;
+}
 .select:hover{
     cursor: pointer;
 }
@@ -107,7 +123,7 @@ a{
     height: 18px;
     margin-top: 8px;
     margin-bottom: 8px;
-    border-color: blue;
+    border-color: #08844c;
     border-width: 1px;
     border-style: solid;
 }
@@ -186,7 +202,7 @@ a{
 }
 .confirm-submit:hover{
     color: white;
-    background-color: blue;
+    background-color: #08844c;
 }
 .button_image{
     height: 19px;
