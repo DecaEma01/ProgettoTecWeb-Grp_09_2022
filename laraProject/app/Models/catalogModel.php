@@ -17,9 +17,10 @@ class catalogModel extends Model
     }
 
     public function trovaCasa($id){
-         
-        $casa = Casa::find($id);       
-        return $casa;
+         //da testare         
+        return Casa::find($id);
         
     }
+
+    //public function filtr
 }
