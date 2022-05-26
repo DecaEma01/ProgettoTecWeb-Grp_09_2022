@@ -72,3 +72,8 @@ Route::get('add-house/', function () {
 Route::get('edit-house/', function () {
     return view('edit-house');
 });
+
+
+//................rotta di prova
+Route::get('prova/','PublicController@showCatalog');
+

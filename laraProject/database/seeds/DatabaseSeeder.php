@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+//use Carbon\Carbon;
 
 
 class DatabaseSeeder extends Seeder
@@ -16,22 +16,22 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         DB::table('utente')->insert([
-            ['id_utente' => 1, 'livello' => 3, 'sesso' => null, 'eta' => null,'email' => 'adminMail@gmail.com','user' => 'nomeUtente','password' => 'adminPass','nome' =>null,'cognome' =>null],
-            ['id_utente' => 2, 'livello' => 2, 'sesso' => null, 'eta' => null,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'apass','nome' =>'Franco','cognome' =>'Bianchi'],
-            ['id_utente' => 3, 'livello' => 2, 'sesso' => 'M', 'eta' => 21,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'bpass','nome' =>'Fede','cognome' =>'River'],
-            ['id_utente' => 4, 'livello' => 2, 'sesso' => 'M', 'eta' => 19,'email' => 'ParadiseMail@gmail.com','user' => 'nomeUtente','password' => 'cpass','nome' =>'Giorgio','cognome' =>'Rossi'],
-            ['id_utente' => 5, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'windbreaker@gmail.com','user' => 'nomeUtente','password' => 'dpass','nome' =>'Eren','cognome' =>'Jaeger'],
-            ['id_utente' => 6, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'yugi@gmail.com','user' => 'nomeUtente','password' => 'epass','nome' =>'Ivo','cognome' =>'Palladino'],
-            ['id_utente' => 7, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'supreme@gmail.com','user' => 'nomeUtente','password' => 'fpass','nome' =>'Sandro','cognome' =>'Minu'],
-            ['id_utente' => 8, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'gpass','nome' =>'Xavier','cognome' =>'Lofi'],
-            ['id_utente' => 9, 'livello' => 2, 'sesso' => 'F', 'eta' => 26,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'hpass','nome' =>'Axel','cognome' =>'Toma'],
-            ['id_utente' => 10, 'livello'=> 2, 'sesso' => 'F', 'eta' => 22,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'ipass','nome' =>'Jude','cognome' =>'Verdi']
+            ['id_utente' => 1, 'livello' => 3, 'sesso' => null, 'eta' => null,'email' => 'adminMail@gmail.com','user' => 'nomeUtente1','password' => 'adminPass','nome' =>null,'cognome' =>null],
+            ['id_utente' => 2, 'livello' => 2, 'sesso' => null, 'eta' => null,'email' => 'bellamail@gmail.com','user' => 'nomeUtente2','password' => 'apass','nome' =>'Franco','cognome' =>'Bianchi'],
+            ['id_utente' => 3, 'livello' => 2, 'sesso' => 'M', 'eta' => 21,'email' => 'bellamail@gmail.com','user' => 'nomeUtente3','password' => 'bpass','nome' =>'Fede','cognome' =>'River'],
+            ['id_utente' => 4, 'livello' => 2, 'sesso' => 'M', 'eta' => 19,'email' => 'ParadiseMail@gmail.com','user' => 'nomeUtente4','password' => 'cpass','nome' =>'Giorgio','cognome' =>'Rossi'],
+            ['id_utente' => 5, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'windbreaker@gmail.com','user' => 'nomeUtente5','password' => 'dpass','nome' =>'Eren','cognome' =>'Jaeger'],
+            ['id_utente' => 6, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'yugi@gmail.com','user' => 'nomeUtente6','password' => 'epass','nome' =>'Ivo','cognome' =>'Palladino'],
+            ['id_utente' => 7, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'supreme@gmail.com','user' => 'nomeUtente7','password' => 'fpass','nome' =>'Sandro','cognome' =>'Minu'],
+            ['id_utente' => 8, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'bellamail@gmail.com','user' => 'nomeUtente8','password' => 'gpass','nome' =>'Xavier','cognome' =>'Lofi'],
+            ['id_utente' => 9, 'livello' => 2, 'sesso' => 'F', 'eta' => 26,'email' => 'bellamail@gmail.com','user' => 'nomeUtente9','password' => 'hpass','nome' =>'Axel','cognome' =>'Toma'],
+            ['id_utente' => 10, 'livello'=> 2, 'sesso' => 'F', 'eta' => 22,'email' => 'bellamail@gmail.com','user' => 'nomeUtente10','password' => 'ipass','nome' =>'Jude','cognome' =>'Verdi']
         ]);
 
         DB::table('casa')->insert([
-            ['id_casa' => 1, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> null, 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
-            ['id_casa' => 2, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> null, 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
-            ['id_casa' => 3, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> null, 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
+            ['id_casa' => 1, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> 'public\media\01.jpg', 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
+            ['id_casa' => 2, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> 'public\media\02.jpg', 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
+            ['id_casa' => 3, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> 'public\media\03.jpg', 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
             ['id_casa' => 4, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> null, 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
             ['id_casa' => 5, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> null, 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
             ['id_casa' => 6, 'regione' => 'Molise', 'via' => 'via roma', 'citta' => 'Termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true, 'piano'=>3,'arredato'=> true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> null, 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
