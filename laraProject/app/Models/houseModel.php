@@ -28,17 +28,18 @@ class houseModel extends Model
     }
 
 
-    public function trovaCasa($id){
-        //da testare         
+    public function trovaCasa($id){        
        return Casa::find($id);
        
    }
 
+   /* //forse non serve
    public function trovaLocatoreCasa($id_locatore){
        //da modificare  
        // return Casa::find($id);
       
   }
+  */
 
 
    public function salvaSpostaNewImg($request,$formImgName) {
