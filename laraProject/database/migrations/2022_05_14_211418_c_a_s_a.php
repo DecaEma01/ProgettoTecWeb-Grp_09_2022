@@ -27,8 +27,8 @@ class CASA extends Migration
             $table->boolean('wifi');
             $table->boolean('tv');
             $table->boolean('terrazza');
-            $table->integer('piano');
-            $table->boolean('arredato');
+            //$table->integer('piano');
+            //$table->boolean('arredato');
             $table->integer('eta_min')->nullable();
             $table->integer('eta_max')->nullable();
             $table->text('sesso')->nullable();

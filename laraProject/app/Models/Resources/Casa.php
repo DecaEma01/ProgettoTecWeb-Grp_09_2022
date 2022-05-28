@@ -41,5 +41,8 @@ class Casa extends Model
         'id_locatore'];
 
  
+
+
+       
 }
 

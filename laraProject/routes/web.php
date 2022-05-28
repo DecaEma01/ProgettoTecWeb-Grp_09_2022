@@ -74,6 +74,8 @@ Route::get('edit-house/', function () {
 });
 
 
-//................rotta di prova
-Route::get('prova/','PublicController@showCatalog');
+//................rotte di prova
+Route::get('showCatalog/','PublicController@showCatalog');
+
+Route::get('filterCatalog/','PublicController@filtraCatalogo');
 

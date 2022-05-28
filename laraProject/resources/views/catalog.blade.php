@@ -50,7 +50,7 @@
         <input type="number" class="input middable_input" name="bed" id="bed" placeholder="Numero di posti letto">
 
         <br><br>
-        <p class="text">Servizi Inclusi</p>
+        <p class="text">Servizi Inclusi appartamento</p>
         <div class="checkbox-content">
             <div class="checkbox2">
                 <input type="checkbox" id="wifi"  />
@@ -68,11 +68,11 @@
         </div>
         @endif
 
-        @if(false)<!--filtri se seleziono posto letto-->
+        @if(true)<!--filtri se seleziono posto letto-->
         <input type="number" class="input middable_input" name="dimension-room" id="dimension-room" placeholder="Dimensioni della stanza">
         <input type="number" class="input middable_input" name="room" id="room" placeholder="Numero di letti in camera">
 
-        <p class="text">Servizi Inclusi</p>
+        <p class="text">Servizi Inclusi posto letto</p>
         <div class="checkbox-content">
             <div class="checkbox2">
                 <input type="checkbox" id="wifi"  />
@@ -97,11 +97,11 @@
         <p class="text">Arredamento</p>
         <div class=checkbox-content>
             <div class="checkbox2">
-                <input type="radio"  id="Sarredamento_checkbox" name="arredamento_checkbox" />
+                <input type="radio"  id="Sarredamento_checkbox" name="Sarredamento_checkbox" />
                 <label for="si">Si</label>
             </div>
             <div class="checkbox2">
-                <input type="radio"  id="Narredamento_checkbox" name="arredamento_checkbox" />
+                <input type="radio"  id="Narredamento_checkbox" name="Narredamento_checkbox" />
                 <label for="No">No</label>
             </div>
         </div>
