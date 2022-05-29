@@ -5,21 +5,35 @@
 <div class="container large-container">
     <div class="title">FAQ</div>
     <div class="container-content">
-        @isset($faq[0])
-            {{ Form::open(array('route' => 'update-faq', 'id' => 'updatefaq')) }}
-                {{ Form::text('question', $faq[0]->domanda, ['class' => 'input','autofocus'=>'autofocus']) }}
-                {{ Form::textarea('answer', $faq[0]->risposta, ['class' => 'input textarea-input']) }}
-                {{ Form::submit('Salva', ['class' => 'submit middable_submit']) }}
-                {{ Form::hidden('id', $faq[0]->id_faq) }}
-            {{ Form::close() }}
-            {{ Form::open(array('route' => 'update-faq', 'id' => 'deletefaq')) }}
-                {{ Form::submit('Elimina', ['class' => 'submit middable_submit']) }}
-            {{ Form::close() }}
-        @endisset()
-        @empty($faq[0])
-            {{ Form::label('', 'La faq selezionata non esiste', ['class' => 'input']) }}
-        @endempty()
+        @if($mode == 'edit')
+            <!--form popalata-->
+            {!! Form::model($faq, ['route' => 'update-faq', 'id' => 'updatefaq', 'method' => 'put' ]) !!}
+        @else
+             <!--form nuova vuota-->
+            {!! Form::open([ 'route' => 'insert-faq', 'method' => 'post' ]) !!}
+        @endif
+
+            <!--form per fare l'inserimento, se è collegato un modello recupera il campo $faq -> domanda -->
+
+                {!! Form::text('domanda', null, ['id' => 'domanda', 'class' => 'input', 'autofocus'=>'autofocus', 'required'=>'required']) !!}
+                {!! Form::textarea('risposta', null, ['id' => 'risposta', 'class' => 'input textarea-input', 'required'=>'required']) !!}
+                {!! Form::hidden('id_faq', NULL, ['id' => 'id_faq']) !!}
+                {!! Form::submit('Salva', ['class' => 'submit middable_submit']) !!}
+                 {!! Form::close() !!}
+        @if($mode == 'edit')
+            {!! Form::open(array('route' => 'delete-faq', 'id' => 'deletefaq', 'method' => 'delete')) !!}
+                {!! Form::hidden('id_faq', $faq -> id_faq, ['id' => 'id_faq']) !!}
+                {!! Form::submit('Elimina', ['class' => 'submit middable_submit'] ) !!}
+            {!! Form::close() !!}
+        @endif
     </div>
 </div>
-
+<script>
+    const form=document.getElementById('deletefaq');
+    form.addEventListener('submit', e => {
+        if(!confirm("Sei sicuro di voler eliminare la faq")) {
+            e.preventDefault();
+        }
+    })
+</script>
 @include('footer')

@@ -26,7 +26,26 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    /*protected function redirectTo() {        
+        $role = auth()->user()->role;
+        switch ($role) {
+            case 'admin': return '/admin';
+                break;
+            case 'user': return '/user';
+                break;
+            default: return '/';
+        };
+    } */
+
+    //protected $redirectTo = '/profile';
+
+    /**
+     * Override:: Login con 'username' al posto di 'email'.
+     *
+     */
+    public function username() {
+        return 'user';//rivedere col prof
+    }
 
     /**
      * Create a new controller instance.

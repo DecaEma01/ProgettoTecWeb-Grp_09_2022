@@ -28,6 +28,19 @@ class DatabaseSeeder extends Seeder
             ['id_utente' => 10, 'livello'=> 2, 'sesso' => 'F', 'eta' => 22,'email' => 'bellamail@gmail.com','user' => 'nomeUtente10','password' => 'ipass','nome' =>'Jude','cognome' =>'Verdi']
         ]);
 
+        DB::table('users')->insert([
+            ['id_utente' => 1, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'adminMail@gmail.com','user' => 'lorelore','password' => 'Cz5HjmLB','nome' =>'Lorenzo','cognome' =>'Lorenzi'],
+            ['id_utente' => 2, 'livello' => 2, 'sesso' => 'F', 'eta' => 19,'email' => 'bellamail@gmail.com','user' => 'lariolario','password' => 'Cz5HjmLB','nome' =>'Franco','cognome' =>'Bianchi'],
+            ['id_utente' => 3, 'livello' => 3, 'sesso' => null, 'eta' => null,'email' => 'bruttamail@gmail.com','user' => 'adminadmin','password' => 'Cz5HjmLB','nome' =>null,'cognome' =>null],
+            ['id_utente' => 4, 'livello' => 2, 'sesso' => 'M', 'eta' => 19,'email' => 'ParadiseMail@gmail.com','user' => 'nomeUtente','password' => 'cpass','nome' =>'Giorgio','cognome' =>'Rossi'],
+            ['id_utente' => 5, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'windbreaker@gmail.com','user' => 'nomeUtente','password' => 'dpass','nome' =>'Eren','cognome' =>'Jaeger'],
+            ['id_utente' => 6, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'yugi@gmail.com','user' => 'nomeUtente','password' => 'epass','nome' =>'Ivo','cognome' =>'Palladino'],
+            ['id_utente' => 7, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'supreme@gmail.com','user' => 'nomeUtente','password' => 'fpass','nome' =>'Sandro','cognome' =>'Minu'],
+            ['id_utente' => 8, 'livello' => 1, 'sesso' => null, 'eta' => null,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'gpass','nome' =>'Xavier','cognome' =>'Lofi'],
+            ['id_utente' => 9, 'livello' => 2, 'sesso' => 'F', 'eta' => 26,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'hpass','nome' =>'Axel','cognome' =>'Toma'],
+            ['id_utente' => 10, 'livello'=> 2, 'sesso' => 'F', 'eta' => 22,'email' => 'bellamail@gmail.com','user' => 'nomeUtente','password' => 'ipass','nome' =>'Jude','cognome' =>'Verdi']
+        ]);
+
         DB::table('casa')->insert([
             ['id_casa' => 1, 'regione' => 'molise', 'via' => 'via roma', 'citta' => 'termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> 'public\media\01.jpg', 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],
             ['id_casa' => 2, 'regione' => 'molise', 'via' => 'via roma', 'citta' => 'termoli','data_inizio' => 1600819200,'data_fine' => 1600819200,'assegnata' =>false,'tipo' =>false,'prezzo' => 500, 'mq' => 100, 'wifi' => true, 'tv' => true,'terrazza' =>true,'eta_min' => 18,'eta_max' => 25,'sesso' => 'M', 'foto'=> 'public\media\02.jpg', 'Anum_camere' => 4, 'Anum_letti' => 4,'Acucina' => true,'Asoggiorno' => true,'Pletti_camera' =>null,'Pletti_app' =>null,'Pstudio' => null,'id_locatore' => 3],

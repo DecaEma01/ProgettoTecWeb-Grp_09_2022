@@ -5,7 +5,7 @@
         Accedi
     </div>
     <form class="container-content">
-        <input type="mail" class="input" name="mail" id="mail" placeholder="E-mail">
+        <input type="mail" class="input" name="mail" id="user" placeholder="Username">
         <input type="password" class="input" name="password" id="password" placeholder="Password">
         <div class="submit" onclick="prepare_login()">Entra</div>
         <br>

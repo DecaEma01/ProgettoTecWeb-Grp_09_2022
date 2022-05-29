@@ -25,6 +25,7 @@
 
         <input type="text" class="input" name="name" id="name" placeholder="Nome">
         <input type="text" class="input" name="surname" id="surname" placeholder="Cognome">
+        <input type="text" class="input" name="user" id="user" placeholder="Username">
         <input type="mail" class="input" name="email" id="email" placeholder="Email">
         <input type="password" class="input" name="password" id="password" placeholder="Password">
         <input type="password" class="input" name="repeat_password" id="repeat_password" placeholder="Ripeti Password">

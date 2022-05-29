@@ -19,8 +19,8 @@ class CHAT extends Migration
             $table->unsignedBigInteger('id_locatore');
             $table->unsignedBigInteger('id_locatario');
 
-            $table->foreign('id_locatario')->references('id_utente')->on('utente');
-            $table->foreign('id_locatore')->references('id_utente')->on('utente');
+            $table->foreign('id_locatario')->references('id_utente')->on('users');
+            $table->foreign('id_locatore')->references('id_utente')->on('users');
             $table->foreign('id_casa')->references('id_casa')->on('casa');
 
         });

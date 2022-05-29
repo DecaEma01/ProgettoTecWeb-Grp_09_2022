@@ -20,7 +20,7 @@ class MESSAGGIO extends Migration
             $table->unsignedBigInteger('id_mittente');
             $table->unsignedBigInteger('id_chat');
 
-            $table->foreign('id_mittente')->references('id_utente')->on('utente');
+            $table->foreign('id_mittente')->references('id_utente')->on('users');
             $table->foreign('id_chat')->references('id_chat')->on('chat');
             
         });

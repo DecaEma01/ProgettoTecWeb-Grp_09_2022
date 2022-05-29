@@ -29,7 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -47,14 +48,32 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    
+     //N.B con unique impedisco email e user identici con altri utenti
     protected function validator(array $data)
-    {
+    { 
+        //dd($data);
+       
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'user' => ['required', 'string', 'min:8', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            //'genere' => ['required_if:radioBtn,Locatario', 'in:Uomo,Donna'],
+            //'eta' => ['required_if:radioBtn,Locatario', 'integer','min:18'],
         ]);
     }
+
+    public function checkLevel($genere,$eta){
+        $livello=0;
+        if(($genere== null) && ($eta== null)){
+            $livello = 2;
+        }else{
+            $livello = 1; 
+        }
+        return $livello;
+   }
 
     /**
      * Create a new user instance after a valid registration.
@@ -65,9 +84,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nome' => $data['name'],
+            'cognome' => $data['surname'],
+            'user' => $data['user'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'sesso' => $data['genere'],
+            'eta' => $data['eta'],
+            //'livello' => 2->default(2),
+            'livello' => $this->checkLevel($data['genere'],$data['eta']),
+            
         ]);
     }
+
+
+
 }

@@ -43,7 +43,7 @@ class CASA extends Migration
             $table->unsignedBigInteger('id_locatore');
 
 
-            $table->foreign('id_locatore')->references('id_utente')->on('utente')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_locatore')->references('id_utente')->on('users')->onDelete('cascade')->onUpdate('cascade');
          
             
         });

@@ -6,23 +6,19 @@
 <div class="container large-container">
     <div class="title">FAQs</div>
     <div class="container-content">
-        <a href="{{"faq?id="}}" class="preview-container">
-            <label class="preview-title">
-                Come faccio a registrarmi?
-            </label>
-            <label class="preview-message">
-                Per registrarti, ti basta cliccare su LOGIN e poi su registrati.
-            </label>
-        </a>
-        <a href="{{"faq?id="}}" class="preview-container">
-            <label class="preview-title">
-                Come faccio a loggarmi?
-            </label>
-            <label class="preview-message">
-                Per registrarti, ti basta cliccare su LOGIN.
-            </label>
-        </a>
+        @foreach($faqs as $faq)
+            <a href="{{route('faq', ['id_faq' => $faq -> id_faq])}}" class="preview-container">
+                <label class="preview-title">
+                    {{ $faq -> domanda }}
+                </label>
+                <label class="preview-message">
+                    {{ $faq -> risposta }}
+                </label>
+            </a>
+        @endforeach
+        <a href="{{route('new-faq')}}" class="submit middable_submit'">Inserisci una nuova FAQ</a>     
     </div>
+       
 </div>
 
 @include('footer')

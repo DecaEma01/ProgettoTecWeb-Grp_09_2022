@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 
 use App\Models\catalogModel;
-use App\Models\housegModel;
+use App\Models\houseModel;
 use App\Models\Resources\Casa;
 use App\Models\Resources\Utente;
 //use Carbon\Carbon;

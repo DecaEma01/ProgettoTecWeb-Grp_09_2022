@@ -1,40 +1,48 @@
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/chat.css') }}" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{asset('js/chat.js')}}" ></script>
 
+<?php use Illuminate\Support\Facades\Auth ?>
 @include("menu")
 
 <div class="container large-container">
-    <div class="title">Steve Jobs</div>
-    <div class="container-content">
-        <form class="chat-newmessage">
-            <input type="text" class="input search_input" autofocus placeholder="Testo del messaggio" />
-            <input type="submit" class="submit middable_submit search_submit" value="🔎"/>
-        </form>
-        <div class="chat-container">
-            <div class="chat-message" id="chat-message-me">
-                <label class="chat-text">Ciao quanto vuoi per la casa?</label>
-                <label class="chat-date">22.02.22 09:41</label>
-            </div> 
-        </div>
-        <div class="chat-container">
-            <div class="chat-message" id="chat-message-you">
-                <label class="chat-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
-                <label class="chat-date">22.02.22 09:41</label>
-            </div>
-        </div>
-        <div class="chat-container">
-            <div class="chat-message" id="chat-message-you">
-                <label class="chat-text">Prova messaggio multilinea, ogni messaggio occupa massimo il 60% della larghezza, e minimo 100px</label>
-                <label class="chat-date">22.02.22 09:41</label>
-            </div>
-        </div>
-        <div class="chat-container">
-            <div class="chat-message" id="chat-message-me">
-                <label class="chat-text">€</label>
-                <label class="chat-date">22.02.22 09:41</label>
-            </div> 
-        </div>
-    </div>
+    @isset($chat)
+        <h1 class="title"><?php echo $chat->id_locatario, $chat->id_locatore ?></h1>
+        <div class="container-content">
+        @isset($id_casa)
+            {{ Form::open(array('route' => 'create-message-with-option', 'id' => 'createMessage', 'class' => 'chat-newmessage')) }}
+            @csrf {{ Form::hidden('id_casa', $id_casa) }}
+        @endisset()
+        @empty($id_casa)
+        <form action="{{ route('create-message', [$chat->id_chat]) }}" method="POST" id= "createMessage" class = "chat-newmessage">
+        @endempty()
+            @csrf {{ Form::text('text', '', ['class' => 'input search_input','autofocus' => 'autofocus', 'placeholder' => 'Testo del messaggio', 'id' => 'chat-newtext','required'=>'required']) }}
+            @csrf {{ Form::hidden('id_chat', $chat->id_chat) }}
+            @csrf {{ Form::submit('ᗒ', ['class' => 'submit middable_submit search_submit', 'id' => 'chat-submit']) }}
+        {{ Form::close() }}
+        @isset($messages)
+            @foreach ($messages as $message)
+                <div class="chat-container">
+                    @if(Auth::id() == $message->id_mittente)
+                        <div class="chat-message" id="chat-message-me">
+                    @endif
+                    @if(Auth::id() != $message->id_mittente)
+                        <div class="chat-message" id="chat-message-you">
+                    @endif
+                        {{ Form::label('', $message->testo, ['class' => 'chat-text']) }}
+                        {{ Form::label('', date('Y/m/d H:i:s', $message->data_ora), ['class' => 'chat-date']) }}
+                    </div> 
+                </div>
+            @endforeach()
+            <!--Paginazione-->
+            @include('paginator', ['paginator' => $messages])
+        @endisset()
+    @endisset()
+    @empty($chat)
+        {{ Form::label('', 'La chat selezionata non esiste', ['class' => 'input']) }}
+    @endempty()
 </div>
 
 @include("footer")
