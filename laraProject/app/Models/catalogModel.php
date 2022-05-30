@@ -31,7 +31,7 @@ class catalogModel extends Model
     // se tipo = true allora la casa è un'appartamento altrimenti è un posto letto
     //le città e le regioni nel db sono salvate tutte minuscole
     //le condizioni che iniziano con A sono relative ai solo appartamenti mentre quelli che iniziano con P ai soli posti letto
-    public function filtraCatalogo($mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$PnumLettiCam,$PnumLettiApp,$Pstudio,$min,$max){
+    public function filtraCatalogo($mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max){
         
         if($min>$max) $min=null;
         if($data_inizio>$data_fine) $data_inizio=null;
@@ -78,12 +78,12 @@ class catalogModel extends Model
             return $q->where('Asoggiorno','=',$Asoggiorno);
                     
         })
-        ->when(($tipo!==false and $PnumLettiCam!=null),function ($q) use ($PnumLettiCam){
-            return $q->where('Pletti_camera','=',$PnumLettiCam);
+        ->when(($tipo!==false and $Pletti_camera!=null),function ($q) use ($Pletti_camera){
+            return $q->where('Pletti_camera','=',$Pletti_camera);
                     
         })
-        ->when(($tipo!==false and $PnumLettiApp!=null),function ($q) use ($PnumLettiApp){
-            return $q->where('Pletti_app','=',$PnumLettiApp);
+        ->when(($tipo!==false and $Pletti_app!=null),function ($q) use ($Pletti_app){
+            return $q->where('Pletti_app','=',$Pletti_app);
                     
         })
         ->when(($tipo!==false and $Pstudio!=null),function ($q) use ($Pstudio){

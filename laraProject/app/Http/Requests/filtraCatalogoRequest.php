@@ -24,7 +24,22 @@ class filtraCatalogoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'mq' => ['integer','max:1000','nullable'],
+            'tipo' => ['boolean','nullable'],
+            'data_inizio' => ['string', 'date','nullable'],
+            'data_fine' => ['string', 'date','nullable'],
+            'citta' => [ 'string','max:255','nullable'],
+            'regione' => [ 'string','max:255','nullable'],
+            'Anum_camere' => [ 'integer','min:1','nullable'],
+            'Anum_letti' => [ 'integer', 'min:1','nullable'],
+            'Acucina' => ['boolean','nullable'],
+            'Asoggiorno' => [ 'boolean','nullable'],
+            'Pletti_camera' => ['integer','min:1','nullable'],
+            'Pletti_app' => ['integer','min:1','nullable'],
+            'Pstudio' => ['boolean','nullable'],
+            'min' => ['integer','min:1','nullable'],
+            'max' => ['integer','max:1000','nullable'],
+            
         ];
     }
 }
