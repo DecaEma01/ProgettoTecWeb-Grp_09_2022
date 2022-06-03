@@ -17,7 +17,7 @@ use App\Models\Resources\Utente;
 
 use App\Http\Requests\filtraCatalogoRequest;
 use App\Http\Requests\modificaCasaRequest;
-use App\Http\Requests\newCasaRequestRequest;
+use App\Http\Requests\newCasaRequest;
 
 class PublicController extends Controller
 {
@@ -66,7 +66,6 @@ class PublicController extends Controller
         $tipo=true;
         if($request-> input('tipo') == '2')
         $tipo=false;
-      
         //$tipo = $request -> input('tipo');
         //dd($tipo);
         $data_inizio = strtotime($request -> input('data_inizio'));
@@ -87,6 +86,19 @@ class PublicController extends Controller
         $tv = $request -> input('tv');
         $terrazza = $request -> input('terrazza');
 
+        
+        if($request-> input('data_inizio') == false)
+        $data_inizio=null;
+        if($request-> input('data_fine') == false)
+        $data_fine=null;
+
+        
+        if($request-> input('regione') == '')
+        $regione=null;
+        if($request-> input('citta') == '')
+        $citta=null;
+
+
         $this->listaCase=$this->_catalogModel->filtraCatalogo($mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$Anum_camere,$Anum_letti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max,$wifi,$tv,$terrazza);
        
         //dd($this->listaCase);
@@ -98,27 +110,34 @@ class PublicController extends Controller
     }
 
 
+    public function showCasaForm(){
+
+        return view('add-house');
+
+    }
+
+
     public function addCasa(newCasaRequest $request){
 
-        $request->validate();
 
-        $newImgName=$this->$_houseModel->salvaSpostaNewImg($request,($request->input('foto')));
+        if($request->hasFile('foto'))
+        $newImgName=$this->$_houseModel->salvaSpostaNewImg($request,($request->input('foto')->getClientOriginalName()));
+        else
+        $newImgName=null;
 
         $titolo = $request -> input('titolo');	
         $descrizione= $request -> input('descrizione');		
-        $regione = $request -> input('regione');	
+        $regione = $request -> strtolower(trim(input('regione')));	
         $via= $request -> input('via');	
-        $citta= $request -> input('citta');	
-        $data_inizio= $request -> input('data_inizio');		
-        $data_fine= $request -> input('data_fine');		
+        $citta= $request -> strtolower(trim(input('citta')));	
+        $data_inizio= $request -> strtotime(input('data_inizio'));		
+        $data_fine= $request -> strtotime(input('data_fine'));		
         $tipo= $request -> input('tipo');		
         $prezzo= $request -> input('prezzo');		
         $mq= $request -> input('mq');		
         $wifi= $request -> input('wifi');		
         $tv= $request -> input('tv');		
-        $terrazza= $request -> input('terrazza');		
-        $piano= $request -> input('piano');		
-        $arredato= $request -> input('arredato');		
+        $terrazza= $request -> input('terrazza');			
         $eta_min= $request -> input('eta_min');		
         $eta_max= $request -> input('eta_max');		
         $sesso= $request -> input('sesso');		
@@ -130,14 +149,21 @@ class PublicController extends Controller
         $Pletti_camera= $request -> input('Pletti_camera');		
         $Pletti_app= $request -> input('Pletti_app');		
         $Pstudio= $request -> input('Pstudio');		
-        $id_locatore= Auth::id();	   //mi serve dalla sessione
-        
+        //$id_locatore= Auth::id();	   //mi serve dalla sessione
+        $id_locatore=1;
+
+        if($request-> input('sesso') == '0')
+        $sesso=null;
+        if($request-> input('sesso') == '1')
+        $sesso='M';
+        if($request-> input('sesso') == '2')
+        $sesso='F';
 
 
         //$casaFoto=inserisciCasa(attributiVari....datepassate come stringhe......,newImgName,.... );
-        $casaFoto=$this->$_houseModel->inserisciCasa($titolo,$descrizione,$regione,$via,$citta,$data_inizio,$data_fine,$tipo,$prezzo,$mq,$wifi,$tv,$terrazza,$piano,$arredato,$eta_min,$eta_max,$sesso,$newImageName,$Anum_camere,$Anum_letti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$id_locatore);
+        $casaNuova=$this->$_houseModel->inserisciCasa($titolo,$descrizione,$regione,$via,$citta,$data_inizio,$data_fine,$tipo,$prezzo,$mq,$wifi,$tv,$terrazza,$eta_min,$eta_max,$sesso,$newImageName,$Anum_camere,$Anum_letti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$id_locatore);
         
-        return view('home'); // magari una vista per dire inserimento eseguito con successo
+        return redirect()->back(); // magari una vista per dire inserimento eseguito con successo
    
         /*
         questa roba non serve
@@ -190,13 +216,30 @@ class PublicController extends Controller
       
     }
 
+    /*
     public function vedilistaCaseLocatore(){
         $id_locatore= Auth::id();
         $this->$caseLocatore=$this->$_houseModel->trovaCaseLocatore($id_locatore);
         return view('listaCaseLocatore')->with('listaCaseLocatore',$this->$caseLocatore);
 
     }
+    */
 
+
+    public function vedilistaCaseLocatore(){
+        /*if (Auth::id() != null){ */
+            $uid =1; // Auth::id();
+            $this->_houseModel = Casa::where('id_locatore', $uid)->get();
+            if (count($this->_houseModel) > 0){
+                return view('myHouses')->with('myhouses', $this->_houseModel);
+            }else{
+                return view('myHouses');
+            }
+        /*}else{
+            return view('noperm');
+        }
+        */
+    }
 
     /*
     public function vediCasaLocatore(Request $request){

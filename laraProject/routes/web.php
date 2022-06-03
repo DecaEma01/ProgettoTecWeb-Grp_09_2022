@@ -169,7 +169,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//by Manu
 
 //visualizza il catalogo non filtrato
 Route::get('showCatalog/','PublicController@showCatalog')->name('showCatalog');
@@ -182,3 +181,14 @@ Route::get('showFilters/', function () {
 //esegue il filtraggio del catalogo e lo visualizza
 Route::post('filterCatalog/','PublicController@filtraCatalogo')->name('filterCatalog');
 
+//visualizza la lista delle case del locatore
+Route::get('myHouses/','PublicController@vedilistaCaseLocatore')
+    ->name('myHouses');
+
+//fa visualizzare la form per aggiungere una nuova casa dal locatore
+Route::get('newHouseForm/','PublicController@showCasaForm')
+    ->name('newHouseForm');
+
+//fa aggiungere una nuova casa dal locatore
+Route::post('newHouse/','PublicController@addCasa')
+    ->name('newHouse');

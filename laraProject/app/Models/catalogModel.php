@@ -39,18 +39,15 @@ class catalogModel extends Model
         //dd([$mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max]);
         //dd($tipo);
 
+        if($tipo==false)
+        $tipo=3;
+
+
         $temp=new Casa;
         $temp = $temp->newQuery();
-
+        
         if($mq!=null)
             $temp->where('mq','>=',$mq);
-
-        if($tipo!=null){
-            if($tipo==true)
-            $temp->where('tipo','=',true);
-            if($tipo==false)
-            $temp->where('tipo','=',false);
-        }
 
         if($data_inizio!=null)
             $temp->where('data_inizio','<=',$data_inizio);
@@ -106,7 +103,17 @@ class catalogModel extends Model
             $temp->where('tv','=',$tv);
       
         if($terrazza!=null)
-            $temp->where('terrazza','=',$terrazza);    
+            $temp->where('terrazza','=',$terrazza);
+            
+        if($tipo!=null && $tipo!=3 ){
+            $temp->where('tipo','=',$tipo ? 1 : 0);
+            //dd($temp);
+            }
+            else if($tipo==3){
+            //dd($tipo);
+            $temp->where('tipo','=','0');
+            //dd($temp);
+            }
 
       
         //dd($temp);

@@ -38,14 +38,28 @@ class houseModel extends Model
        
    }
 
-   
+   /*
    public function trovaCaseLocatore($id_locatore){
       
     $this->$listaCaseLocatore= Casa::where('id_locatore',$id_locatore)->get();
     return $this->getListaCaseLocatore;
 
       
-   }
+   }*/
+
+   public function getMyHouses(){
+        if (Auth::id() != null){
+            $uid = Auth::id();
+            $this->_housesModel = Casa::where('id_locatore', $uid)->get();
+            if (count($this->_housesModel) > 0){
+                return view('myhouses')->with('myhouses', $this->_housesModel);
+            }else{
+                return null;
+            }
+        }else{
+            return view('noperm');
+        }
+    }
 
 
    /*
@@ -61,8 +75,8 @@ class houseModel extends Model
 
    public function salvaSpostaNewImg($request,$formImgName) {
 
-       $this->$newImgName=time().'-'.$request->formImgName.'.'.$request->formImgName->extension();
-       $request->formImgName->move(public_path('images'),$newImgName);
+       $this->$newImgName=time().'-'."random_int(1,1000000)".$request->formImgName.'.'.$request->formImgName->extension();
+       $request->input('foto')->move(public_path('images'),$newImgName);
        return  $this->$newImgName;
        //il nome va comunque salvato nel database
 
@@ -84,9 +98,7 @@ class houseModel extends Model
    $mq,	
    $wifi,	
    $tv,	
-   $terrazza,	
-   $piano,	
-   $arredato,	
+   $terrazza,		
    $eta_min,	
    $eta_max,	
    $sesso,	
@@ -107,12 +119,12 @@ class houseModel extends Model
        'titolo'=> $titolo,
        'descrizione'=> $descrizione,
        'regione'=> $regione,
-        'via'=> $via,
+       'via'=> $via,
        'citta'=> $citta,
        'titolo'=>$titolo,
        'descrizione'=>$descrizione,
-       'data_inizio'=> strtotime($data_inizio),	
-       'data_fine'=> strtotime($data_fine),	
+       'data_inizio'=>$data_inizio,	
+       'data_fine'=> $data_fine,	
        'assegnata'=> false,	
        'tipo'=> $tipo,
        'prezzo'=> $prezzo,	
