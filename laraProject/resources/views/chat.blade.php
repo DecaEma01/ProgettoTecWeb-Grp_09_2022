@@ -17,6 +17,14 @@
         @endisset()
         @empty($id_casa)
         <form action="{{ route('create-message', [$chat->id_chat]) }}" method="POST" id= "createMessage" class = "chat-newmessage">
+            @if ($errors->first('text'))
+                <ul class="errors">
+                    @foreach ($errors->get('text') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
+
         @endempty()
             @csrf {{ Form::text('text', '', ['class' => 'input search_input','autofocus' => 'autofocus', 'placeholder' => 'Testo del messaggio', 'id' => 'chat-newtext','required'=>'required']) }}
             @csrf {{ Form::hidden('id_chat', $chat->id_chat) }}

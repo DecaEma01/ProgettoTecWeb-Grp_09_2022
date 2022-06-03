@@ -31,12 +31,74 @@ class catalogModel extends Model
     // se tipo = true allora la casa è un'appartamento altrimenti è un posto letto
     //le città e le regioni nel db sono salvate tutte minuscole
     //le condizioni che iniziano con A sono relative ai solo appartamenti mentre quelli che iniziano con P ai soli posti letto
-    public function filtraCatalogo($mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max){
+    public function filtraCatalogo($mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max,$wifi,$tv,$terrazza){
         
         if($min>$max) $min=null;
         if($data_inizio>$data_fine) $data_inizio=null;
         
+        //dd([$mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max]);
+        
+
         $temp=new Casa;
+        $temp = $temp->newQuery();
+
+        if($mq!=null)
+            $temp->where('mq','>=',$mq);
+
+        if($tipo!=null)
+            $temp->where('tipo','=',$tipo);
+
+        if($data_inizio!=null)
+            $temp->where('data_inizio','>=',$data_inizio);
+        
+        if($data_fine!=null)
+            $temp->where('data_fine','<=',$data_fine);
+
+        if($citta!=null)
+            $temp->where(strtolower('citta'),'=',$citta);
+
+        if($regione!=null)
+            $temp->where(strtolower('regione'),'=',$regione);
+                    
+        if($tipo!=true and $AnumCamere!=null)
+            $temp->where('AnumCamere','=',$AnumCamere);
+  
+        if($tipo!=true and $AnumLetti!=null)
+            $temp->where('AnumLetti','=',$AnumLetti);
+        
+        if($tipo!=true and $Acucina!=null)
+            $temp->where('Acucina','=',$Acucina);
+      
+        if($tipo!=true and $Asoggiorno!=null)
+            $temp->where('Asoggiorno','=',$Asoggiorno);
+       
+        if($tipo!=false and $Pletti_camera!=null)
+            $temp->where('Pletti_camera','=',$Pletti_camera);
+        
+        if($tipo!=false and $Pletti_app!=null)
+            $temp->where('Pletti_app','=',$Pletti_app);
+       
+        if($tipo!=false and $Pstudio!=null)
+            $temp->where('Pstudio','=',$Pstudio);
+       
+        if($min!=null)
+            $temp->where('prezzo','>=',$min);
+   
+        if($max!=null)
+            $temp->where('prezzo','<=',$max);
+            
+        if($wifi!=false)
+            $temp->where('wifi','=',$wifi);
+        
+        if($tv!=false)
+            $temp->where('tv','=',$tv);
+      
+        if($terrazza!=false)
+            $temp->where('terrazza','=',$terrazza);    
+
+        
+      
+        /*
         $temp = Casa::when($mq!=null,function ($q) use ($mq){
             return $q->where('mq','>=',$mq);
 
@@ -46,12 +108,12 @@ class catalogModel extends Model
 
         })
         ->when(($data_inizio!=null),function ($q) use ($data_inizio){
-            return $q->where('data_inizio','<=',$data_inizio);
+            return $q->where('data_inizio','>=',$data_inizio);
                     
 
         })
         ->when(($data_fine!=null),function ($q) use ($data_fine){
-            return $q->where('data_fine','>=',$data_fine);
+            return $q->where('data_fine','<=',$data_fine);
 
         })
         ->when($citta!=null,function ($q) use ($citta){
@@ -101,63 +163,16 @@ class catalogModel extends Model
         
         ->get();
 
-        $this->catalog=$temp;
+        */
+
+        //dd($temp);
+
+        $this->catalog=$temp->get();
 
         return $this->getVarCatalog();
       
 
     }
-
-
-
-
-        /*
-        $results = ClientProfile::when(request()->has('service-provider'), function($q){
-            $q->where('jobsc_id', request('service-provider'));
-        })->when(request()->has('product'), function($q){
-            $q->where('product_id', request('product'));
-        })->when(request()->has('city'), function($q){
-            $q->where('divsec_id', request('city'));
-        })->when(count(request()->all()) === 0, function($q){
-            $q->searched();
-        })->where('profile_state', 'active')->paginate(10)->appends([
-            'service-provider' => request('service-provider'),
-            'product' => request('product'),
-            'city' => request('city'),
-        ]);
-        
-        */
-
-          
-
-        
-        
-        /*$catalogo = Casa::when($mq!=null,function ($mq) use ($temp) {
-            $temp= Casa::where('mq', $mq)->get();
-        })
-        ->
-        ->get();
-        */
-        
-        // $this->catalog=$temp;
-
-       // return getCatalog();
-
-               /*$this->casa =
-        $results = User::where('this', '=', 1)
-    ->where('that', '=', 1)
-    ->where('this_too', '=', 1)
-    ->where('that_too', '=', 1)
-    ->where('this_as_well', '=', 1)
-    ->where('that_as_well', '=', 1)
-    ->where('this_one_too', '=', 1)
-    ->where('that_one_too', '=', 1)
-    ->where('this_one_as_well', '=', 1)
-    ->where('that_one_as_well', '=', 1)
-    ->get();*/
-
-
-
 
 
 

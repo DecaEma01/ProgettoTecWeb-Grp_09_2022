@@ -44,6 +44,9 @@ class ChatsController extends Controller {
     }
 
     public function createMessage(Request $request){
+        $request->validate([
+            'text' => ['required', 'string', 'max:255'],
+            ]);
         $message = new Messaggio;
         $message->data_ora = strtotime("now");
         $message->testo = trim($request->input('text'));

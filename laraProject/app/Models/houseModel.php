@@ -14,6 +14,7 @@ class houseModel extends Model
 {
     protected $newImgName;
     protected $house;
+    protected $listaCaseLocatore;
 
     public function __construct() {
         $this->house = new Casa;
@@ -27,19 +28,35 @@ class houseModel extends Model
         return $this->house;
     }
 
+    public function getListaCaseLocatore() {
+        return $this->house;
+    }
+
 
     public function trovaCasa($id){        
        return Casa::find($id);
        
    }
 
-   /* //forse non serve
-   public function trovaLocatoreCasa($id_locatore){
-       //da modificare  
-       // return Casa::find($id);
+   
+   public function trovaCaseLocatore($id_locatore){
       
-  }
-  */
+    $this->$listaCaseLocatore= Casa::where('id_locatore',$id_locatore)->get();
+    return $this->getListaCaseLocatore;
+
+      
+   }
+
+
+   /*
+   public function trovaCasaLocatore($id_locatore){
+      
+    $this->$listaCaseLocatore= Casa::where('id_locatore',$id_locatore)->get();
+    return $this->getListaCaseLocatore;
+
+      
+   }
+   */
 
 
    public function salvaSpostaNewImg($request,$formImgName) {
@@ -54,7 +71,9 @@ class houseModel extends Model
    //public function stringToUnix
 
 
-   public function inserisciCasa(	
+   public function inserisciCasa(
+    $titolo,
+    $descrizione,
    $regione,	
    $via,	
    $citta,	
@@ -85,9 +104,13 @@ class houseModel extends Model
        $miaCasa::Create([
       
        //$miaCasa->nomeAttributo=valoreAttributo
+       'titolo'=> $titolo,
+       'descrizione'=> $descrizione,
        'regione'=> $regione,
         'via'=> $via,
        'citta'=> $citta,
+       'titolo'=>$titolo,
+       'descrizione'=>$descrizione,
        'data_inizio'=> strtotime($data_inizio),	
        'data_fine'=> strtotime($data_fine),	
        'assegnata'=> false,	
@@ -118,7 +141,9 @@ class houseModel extends Model
 
 
    public function modificaCasa(	
-   $id,    
+   $id,
+   $titolo,
+   $descrizione, 
    $regione,	
    $via,	
    $citta,	
@@ -148,9 +173,13 @@ class houseModel extends Model
        $miaCasa=new Casa;
        $miaCasa=trovaCasa($id)->update([
 
+      'titolo'=> $titolo,
+      'descrizione'=> $descrizione,
       'regione'=> $regione,
       'via'=> $via,
       'citta'=> $citta,
+      'titolo'=>$titolo,
+      'descrizione'=>$descrizione,
       'data_inizio'=> strtotime($data_inizio),	
       'data_fine'=> strtotime($data_fine),	
       'assegnata'=> $assegnata,	

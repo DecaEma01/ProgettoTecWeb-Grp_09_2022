@@ -148,7 +148,7 @@ Route::get('add-faq/', function () {
 
 
 
-
+//rotte case provvisorie-----------------------------------
 
 
 Route::get('house/', function () {
@@ -161,7 +161,7 @@ Route::get('add-house/', function () {
 
 Route::get('edit-house/', function () {
     return view('edit-house');
-});
+})->name('edit-house');
 
 
 Auth::routes();
@@ -169,8 +169,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//................rotte di prova
-Route::get('showCatalog/','PublicController@showCatalog');
+//by Manu
 
-Route::get('filterCatalog/','PublicController@filtraCatalogo');
+//visualizza il catalogo non filtrato
+Route::get('showCatalog/','PublicController@showCatalog')->name('showCatalog');
+
+//visualizza la form per il filtraggio del catalogo
+Route::get('showFilters/', function () {
+    return view('filters');
+})->name('showFilters');
+
+//esegue il filtraggio del catalogo e lo visualizza
+Route::post('filterCatalog/','PublicController@filtraCatalogo')->name('filterCatalog');
 

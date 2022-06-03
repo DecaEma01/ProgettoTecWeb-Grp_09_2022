@@ -1,0 +1,13 @@
+.formerror {
+    background: none repeat scroll 0 0 #FFECEC;
+    border: 3px solid #d0e60f;
+    height: auto;
+    margin: 0 0 1px;
+    text-align: center;
+
+}
+
+.errors {
+	color: #d0e60f;
+        font-size: 12px;
+}

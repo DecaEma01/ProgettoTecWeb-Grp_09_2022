@@ -1,109 +1,141 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}" >
-<link rel="stylesheet" type="text/css" href="{{ asset('css/house.css') }}" >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/catalog.css') }}" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{asset('js/managehouse.js')}}" ></script>
 
 @include('menu')
 
 <div class="container large-container">
-    <div class="title">Modifica Annuncio</div>
+    <div class="title">Modifica un Annuncio</div>
     <div class="container-content">
         <div class="container full-container" >
-            <p class="text">Inserisci un'immagine</p>
-            <div class="house-images-container">
-                <div class="house-item">
-                    <input type="file" id="image1" accept="image/png, image/jpeg" class="house-file" placeholder="Seleziona un'immagine" required />
-                    <img src="Media/image.png" id="img1" class="house-image" />
-                    <label class="house-image-name" id="label1"></label>
+        {{ Form::open(['route' => 'edit-house', 'id' => 'createHouse', 'class' => 'catalog-newhouse', 'files' => true]) }}
+
+            <section class="filter-section">
+                {{ Form::label('', 'Intestazione Casa', ['class' => 'filter-title-label']) }}
+                {{ Form::label('', 'Titolo', ['class' => 'filter-parameter-text']) }}
+                {{ Form::text('titolo', '', ['class' => 'input', 'id' => 'title', 'placeholder' => '']) }}
+                {{ Form::label('', 'Descrizione', ['class' => 'filter-parameter-text']) }}
+                {{ Form::textarea('descrizione', '', ['class' => 'input textarea-input']) }}
+                <label class="filter-error-container" id="filter-error-title"></label>
+            </section>
+
+            <section class="filter-section">
+                {{ Form::label('', 'Immagine Casa', ['class' => 'filter-title-label']) }}
+                <div class="filter-parameter-container">
+                    {{ Form::file('foto', ['class' => 'house-file']) }}
                 </div>
             </div>
 
-            <p class="text">Indirizzo</p>
-            <input type="text" class="input" id="Indirizzo" placeholder="Indirizzo" required />
-
-            <br><br>
-            <p class="text">Tipologia</p>
-            <select class="input select" id="type" required>
-                <option value="none" class="option">Seleziona una Tipologia...</option>
-            </select>
-
-            <br><br>
-            <p class="text">Servizi Inclusi</p>
-
-            <div class="checkbox-content">
-                <div class="checkbox2">
-                    <input type="checkbox" id="wifi"  />
-                    <label for="wifi">Wifi</label>
+            <section class="filter-section">
+                {{ Form::label('', 'Canone di Affitto (in €)', ['class' => 'filter-title-label']) }}
+                <div class="filter-parameter-container">
+                    {{ Form::number('prezzo', '', ['class' => 'input', 'id' => 'price', 'placeholder' => '200']) }}
                 </div>
-                <div class="checkbox2">
-                    <input type="checkbox" id="tv"  />
-                    <label for="Tv">TV</label>
+                <label class="filter-error-container" id="filter-error-prices"></label>
+            </section>
+
+            <section class="filter-section">
+                {{ Form::label('', 'Disponibilità', ['class' => 'filter-title-label']) }}
+                <div class="filter-parameter-container">
+                    <label class="filter-parameter-text">Dal: </label>
+                    <input name="data_inizio" type="date" class="input" value="2022-06-01" id="date-min">
                 </div>
-
-                <div class="checkbox2">
-                    <input type="checkbox" id="terrazza"   />
-                    <label for="Terrazza">Terrazza</label>
+                <div class="filter-parameter-container">
+                    <label class="filter-parameter-text">Al: </label>
+                    <input name="data_fine" type="date" class="input" value="2022-07-01" id="date-max">
                 </div>
-            </div>
+                <label class="filter-error-container" id="filter-error-dates"></label>
+            </section>
 
-             <br><br>
-             <p class="text">Superficie</p>
-             <input type="text" class="input" id="superficie" placeholder="Superficie" required />
+            <section class="filter-section">
+                {{ Form::label('', 'Locazione', ['class' => 'filter-title-label']) }}
+                {{ Form::label('', 'Via', ['class' => 'filter-parameter-text']) }}
+                {{ Form::text('via', '', ['class' => 'input', 'id' => 'street', 'placeholder' => 'Via dei Matti, 0']) }}
+                <label class="filter-error-container" id="filter-error-prices"></label>
+
+                {{ Form::label('', 'Città', ['class' => 'filter-parameter-text']) }}
+                {{ Form::text('citta', '', ['class' => 'input', 'id' => 'dimension', 'placeholder' => 'Ancona, Bologna, Torino, ...']) }}
+                <label class="filter-error-container" id="filter-error-prices"></label>
 
 
-            <br><br>
-            <p class="text">Numero stanze</p>
-            <input type="number" class="input" id="Nstanze" placeholder="Numero Stanze" required />
+                {{ Form::label('', 'Regione', ['class' => 'filter-parameter-text']) }}
+                {{ Form::text('regione', '', ['class' => 'input', 'id' => 'dimension', 'placeholder' => 'Marche, Emilia Romagna, Piemonte, ...']) }}
+                <label class="filter-error-container" id="filter-error-prices"></label>
+            </section>
 
+            <section class="filter-section">
+                {{ Form::label('', 'Dati Casa', ['class' => 'filter-title-label']) }}
+                <div class="filter-parameter-container">
+                    {{ Form::label('', 'Seleziona Tipologia Casa', ['class' => 'filter-parameter-text']) }}
+                    {{ Form::select('tipo', array('0' => 'Appartmento', '1' => 'Posto Letto'), '0', array('class' => 'input', 'id' => 'filter-type-house')) }}
 
+                    <section class="filter-section" id="filter-type-apartment">
+                        {{ Form::label('', 'Dimensioni Appartamento in MQ', ['class' => 'filter-parameter-text']) }}
+                        {{ Form::number('mq', '', ['class' => 'input', 'id' => 'dimension', 'placeholder' => '100']) }}
+                        {{ Form::label('', 'Numero di Camere', ['class' => 'filter-parameter-text']) }}
+                        {{ Form::number('Anum_camere', '', ['class' => 'input', 'id' => 'numberofrooms', 'placeholder' => '2']) }}
+                        {{ Form::label('', 'Numero di Posti Letto Totali', ['class' => 'filter-parameter-text']) }}
+                        {{ Form::number('Anum_letti', '', ['class' => 'input', 'id' => 'numberofbeds', 'placeholder' => '5']) }}
+                        {{ Form::label('', 'Servizi', ['class' => 'filter-parameter-text']) }}
+                        <section class="filter-section middable-section">
+                            {{ Form::checkbox('Acucina', 'kitchen', false, ['class' => 'filter-radio']) }}
+                            {{ Form::label('', 'Cucina', ['class' => 'filter-parameter-text']) }}
+                        </section>  
+                        <section class="filter-section middable-section">
+                            {{ Form::checkbox('Asoggiorno', 'living', false, ['class' => 'filter-radio']) }}
+                            {{ Form::label('', 'Locale Ricreativo', ['class' => 'filter-parameter-text']) }}
+                        </section>  
+                        <section class="filter-section middable-section">
+                            {{ Form::checkbox('wifi', 'wifi', false, ['class' => 'filter-radio']) }}
+                            {{ Form::label('', 'Wifi', ['class' => 'filter-parameter-text']) }}
+                        </section>  
+                        <section class="filter-section middable-section">
+                            {{ Form::checkbox('tv', 'tv', false, ['class' => 'filter-radio']) }}
+                            {{ Form::label('', 'TV', ['class' => 'filter-parameter-text']) }}
+                        </section>  
+                        <section class="filter-section middable-section">
+                            {{ Form::checkbox('terrazza', 'terrace', false, ['class' => 'filter-radio']) }}
+                            {{ Form::label('', 'Terrazza', ['class' => 'filter-parameter-text']) }}
+                        </section>
+                    </section>
 
-            <br><br>
-
-            <p class="text">Arredamento</p>
-            <div class=checkbox-content>
-                <div class="checkbox2">
-                    <input type="checkbox"  id="Sarredamento_checkbox" name="Sarredamento_checkbox" />
-                    <label for="si">Si</label>
+                    <section class="filter-section" id="filter-type-bed">
+                    {{ Form::label('', 'Dimensioni Camera in MQ', ['class' => 'filter-parameter-text']) }}
+                        {{ Form::number('mq', '', ['class' => 'input', 'id' => 'dimension', 'placeholder' => '20']) }}
+                        {{ Form::label('', 'Numero di Posti Letto totali in Appartamento', ['class' => 'filter-parameter-text']) }}
+                        {{ Form::number('Pletti_app', '', ['class' => 'input', 'id' => 'numberoftotalrooms', 'placeholder' => '5']) }}
+                        {{ Form::label('', 'Numero di Posti Letto nella Stanza', ['class' => 'filter-parameter-text']) }}
+                        {{ Form::number('Pletti_camera', '', ['class' => 'input', 'id' => 'numberofbeds', 'placeholder' => '2']) }}
+                        <section class="filter-section middable-section">
+                            {{ Form::checkbox('Pstudio', 'studio', false, ['class' => 'filter-radio']) }}
+                            {{ Form::label('', 'Angolo Studio', ['class' => 'filter-parameter-text']) }}
+                        </section>  
+                    </section>
                 </div>
-                <div class="checkbox2">
-                    <input type="checkbox"  id="Narredamento_checkbox" name="Narredamento_checkbox" />
-                    <label for="No">No</label>
-                </div>
-            </div>
+                <label class="filter-error-container" id="filter-error-house"></label>
+            </section>
 
+            <section class="filter-section">
+                {{ Form::label('', 'Categoria Utenza', ['class' => 'filter-title-label']) }}
+                {{ Form::label('', 'Genere', ['class' => 'filter-parameter-text']) }}
+                {{ Form::select('sesso', array('null' => 'Maschi & Femmine', '1' => 'Solo Maschi', '2' => 'Solo Femmine'), '0', array('class' => 'input', 'id' => 'filter-gender')) }}
+                {{ Form::label('', 'Età minima', ['class' => 'filter-parameter-text']) }}
+                {{ Form::number('eta_min', '', ['class' => 'input', 'id' => 'age_min', 'placeholder' => '21']) }}
+                {{ Form::label('', 'Età massima', ['class' => 'filter-parameter-text']) }}
+                {{ Form::number('eta_max', '', ['class' => 'input', 'id' => 'age_max', 'placeholder' => '34']) }}
+                <label class="filter-error-container" id="filter-error-user"></label>
+            </section>
 
-            <br><br>
-            <p class="text">Piano</p>
-            <select class="input select" id="piano" required>
-                <option value="none" class="option">Seleziona Piano...</option>
-            </select>
+            <section class="filter-section">
+                {{ Form::label('', 'La casa è stata assegnata?', ['class' => 'filter-title-label']) }}
+                {{ Form::checkbox('assegnata', 'taken', false, ['class' => 'filter-radio']) }}
+                <label class="filter-error-container" id="filter-error-user"></label>
+            </section>
 
-            <br><br>
-            <p class="text">Data disponibilitÃ </p>
-            <!--
-               sentire massi per formato data
-               -->
-            <p>da: </p>
-            <div class='house-dec-container'>
-               <input type="date" class=" input" value="2022-06-01">
-            </div>
-            <p>a: </p>
-            <div class='house-dec-container'>
-
-               <input type="date" class=" input " value="2022-07-01">
-            </div>
-
-            <br><br>
-            <p class="text">Prezzo</p>
-            <input type="number" class="input" id="price" placeholder="Scegli il prezzo" required />
-
-            <!--non dovrebbe servire dopo la togliamo
-                <br><br>
-                <div class='item-desc' id='item-desc'>
-                        descrizione dell'immagine
-                 </div>-->
-
-            <div class='submit' id="house-inserisci">
-                Salva
-            </div>
+            {{ Form::reset('Annulla', ['class' => 'submit middable_submit', 'id' => 'chat-submit']) }}
+            {{ Form::submit('Salva', ['class' => 'submit middable_submit', 'id' => 'chat-submit']) }}
+        {{ Form::close() }}
         </div>
     </div>
 </div>

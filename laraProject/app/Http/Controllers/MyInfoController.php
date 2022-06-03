@@ -22,8 +22,8 @@ class MyInfoController extends Controller {
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'user' => ['required', 'string', 'min:8', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'genere' => ['required', 'in:Uomo,Donna'],
-            'eta' => ['required', 'integer','min:18'],
+            'genere' => ['required', 'in:Uomo,Donna','nullable'],
+            'eta' => ['required', 'integer','min:18','nullable'],
             
         ]);
         

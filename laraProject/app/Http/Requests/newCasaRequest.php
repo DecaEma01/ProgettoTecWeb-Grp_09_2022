@@ -24,11 +24,14 @@ class newCasaRequest extends FormRequest
     public function rules()
     {
         return [
+            //id casa auto increment
             'regione' => ['string','max:255','required'],
             'via' => ['string','max:255','required'],
             'data_inizio' => ['string', 'date','required'],
             'data_fine' => ['string', 'date','required'],
             'citta' => ['string','max:255','required'],
+            'titolo'=>['string','max:255','required'],
+            'descrizione'=>['string','max:2000','required'],
             //'assegnata' => ['boolean','required'],
             'tipo' => ['boolean','nullable'],
             'mq' => ['integer','min:1','required'],
@@ -45,7 +48,7 @@ class newCasaRequest extends FormRequest
             'terrazza' => ['boolean','required'],
             'eta_min' => ['integer','min:18','max:100','required'],
             'eta_max' => ['integer','min:18','max:100','required'],
-            'sesso' => ['integer','in:0,1','required'],
+            'sesso' => ['boolean','required','nullable'],
             'foto' => ['image','required'],
             'id_locatore'=> ['integer','in:0,1','required'],
         ];
