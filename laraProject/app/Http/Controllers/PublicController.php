@@ -68,11 +68,12 @@ class PublicController extends Controller
         $tipo=false;
       
         //$tipo = $request -> input('tipo');
+        //dd($tipo);
         $data_inizio = strtotime($request -> input('data_inizio'));
-        //dd($data_inizio);
         $data_fine = strtotime($request -> input('data_fine'));
-        $citta = $request -> input('citta');
-        $regione = $request -> input('regione');
+        //dd([$data_inizio,$data_fine]);
+        $citta = strtolower(trim($request -> input('citta')));
+        $regione = strtolower(trim($request -> input('regione')));
         $Anum_camere = $request -> input('Anum_camere');
         $Anum_letti = $request -> input('Anum_letti');
         $Acucina = $request -> input('Acucina');

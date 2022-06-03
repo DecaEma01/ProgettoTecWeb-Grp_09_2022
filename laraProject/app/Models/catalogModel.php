@@ -37,7 +37,7 @@ class catalogModel extends Model
         if($data_inizio>$data_fine) $data_inizio=null;
         
         //dd([$mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max]);
-        
+        //dd($tipo);
 
         $temp=new Casa;
         $temp = $temp->newQuery();
@@ -45,41 +45,53 @@ class catalogModel extends Model
         if($mq!=null)
             $temp->where('mq','>=',$mq);
 
-        if($tipo!=null)
-            $temp->where('tipo','=',$tipo);
+        if($tipo!=null){
+            if($tipo==true)
+            $temp->where('tipo','=',true);
+            if($tipo==false)
+            $temp->where('tipo','=',false);
+        }
 
         if($data_inizio!=null)
-            $temp->where('data_inizio','>=',$data_inizio);
+            $temp->where('data_inizio','<=',$data_inizio);
         
         if($data_fine!=null)
-            $temp->where('data_fine','<=',$data_fine);
+            $temp->where('data_fine','>=',$data_fine);
 
         if($citta!=null)
-            $temp->where(strtolower('citta'),'=',$citta);
+            $temp->where('citta','=',$citta);
 
         if($regione!=null)
-            $temp->where(strtolower('regione'),'=',$regione);
+            $temp->where('regione','=',$regione);
                     
-        if($tipo!=true and $AnumCamere!=null)
-            $temp->where('AnumCamere','=',$AnumCamere);
+        if($tipo!=false and $AnumCamere!=null)
+            $temp->where('AnumCamere','=',$AnumCamere)
+            ->orWhere('AnumCamere','=',null);
   
-        if($tipo!=true and $AnumLetti!=null)
-            $temp->where('AnumLetti','=',$AnumLetti);
+        if($tipo!=false and $AnumLetti!=null)
+            $temp->where('AnumLetti','=',$AnumLetti)
+            ->orWhere('AnumLetti','=',null);
         
-        if($tipo!=true and $Acucina!=null)
-            $temp->where('Acucina','=',$Acucina);
-      
-        if($tipo!=true and $Asoggiorno!=null)
-            $temp->where('Asoggiorno','=',$Asoggiorno);
+        if($tipo!=false and $Acucina!=null){
+            $temp->where('Acucina','=',$Acucina)
+            ->orWhere('Acucina','=',null);
+        }
+                
+        if($tipo!=false and $Asoggiorno!=null)
+            $temp->where('Asoggiorno','=',$Asoggiorno)
+            ->orWhere('Asoggiorno','=',null);
        
-        if($tipo!=false and $Pletti_camera!=null)
-            $temp->where('Pletti_camera','=',$Pletti_camera);
+        if($tipo!=true and $Pletti_camera!=null)
+            $temp->where('Pletti_camera','=',$Pletti_camera)
+            ->orWhere('Pletti_camera','=',null);
         
-        if($tipo!=false and $Pletti_app!=null)
-            $temp->where('Pletti_app','=',$Pletti_app);
+        if($tipo!=true and $Pletti_app!=null)
+            $temp->where('Pletti_app','=',$Pletti_app)
+            ->orWhere('Pletti_app','=',null);
        
-        if($tipo!=false and $Pstudio!=null)
-            $temp->where('Pstudio','=',$Pstudio);
+        if($tipo!=true and $Pstudio!=null)
+            $temp->where('Pstudio','=',$Pstudio)
+            ->orWhere('Pstudio','=',null);
        
         if($min!=null)
             $temp->where('prezzo','>=',$min);
@@ -87,16 +99,33 @@ class catalogModel extends Model
         if($max!=null)
             $temp->where('prezzo','<=',$max);
             
-        if($wifi!=false)
+        if($wifi!=null)
             $temp->where('wifi','=',$wifi);
         
-        if($tv!=false)
+        if($tv!=null)
             $temp->where('tv','=',$tv);
       
-        if($terrazza!=false)
+        if($terrazza!=null)
             $temp->where('terrazza','=',$terrazza);    
 
+      
+        //dd($temp);
+
+        $this->catalog=$temp->get();
         
+        //->paginate(3);
+
+        //dd($temp);
+
+        return $this->getVarCatalog();
+      
+
+    }
+
+
+
+}
+
       
         /*
         $temp = Casa::when($mq!=null,function ($q) use ($mq){
@@ -108,20 +137,20 @@ class catalogModel extends Model
 
         })
         ->when(($data_inizio!=null),function ($q) use ($data_inizio){
-            return $q->where('data_inizio','>=',$data_inizio);
+            return $q->where('data_inizio','<=',$data_inizio);
                     
 
         })
         ->when(($data_fine!=null),function ($q) use ($data_fine){
-            return $q->where('data_fine','<=',$data_fine);
+            return $q->where('data_fine','>=',$data_fine);
 
         })
         ->when($citta!=null,function ($q) use ($citta){
-            return $q->where(strtolower('citta'),'=',$citta);
+            return $q->where(('citta'),'=',$citta);
 
         })
         ->when(($regione!=null),function ($q) use ($regione){
-            return $q->where(strtolower('regione'),'=',$regione);
+            return $q->where(('regione'),'=',$regione);
                     
         })
         ->when(($tipo!==true and $AnumCamere!=null),function ($q) use ($AnumCamere){
@@ -164,16 +193,3 @@ class catalogModel extends Model
         ->get();
 
         */
-
-        //dd($temp);
-
-        $this->catalog=$temp->get();
-
-        return $this->getVarCatalog();
-      
-
-    }
-
-
-
-}

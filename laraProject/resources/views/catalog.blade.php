@@ -72,8 +72,22 @@
             </article>
 
         @endforeach()
-            
+        
+        <!--Paginazione_@include('paginator', ['paginator' => $listaCase]) -->
+
         @endisset()
+
+        @if(count($listaCase)==0)
+        
+        <br>
+        <br>
+        <br>
+        <br> 
+        
+        <h2 class="house-detail"> Nessun risultato. Prova a cambiare i filtri selezionati. </h2>
+
+        
+        @endif
 
             <!--
             <article class="house-content" id="{{"product.id"}}">

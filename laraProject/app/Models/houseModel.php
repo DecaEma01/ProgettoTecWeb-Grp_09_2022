@@ -29,7 +29,7 @@ class houseModel extends Model
     }
 
     public function getListaCaseLocatore() {
-        return $this->house;
+        return $this->$listaCaseLocatore;
     }
 
 
