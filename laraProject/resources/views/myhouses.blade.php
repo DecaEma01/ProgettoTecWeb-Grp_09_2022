@@ -10,7 +10,7 @@
         <div class="products_container" id="sections-container">
             @isset($myhouses)
                 @foreach ($myhouses as $house)
-                    <a href="{{route('house', ['id_casa' => $house->id_casa])}}" class="house-content">
+                    <a href="<?php echo "editHouseForm/".$house->id_casa; ?>" class="house-content">
                         <h2 >{{ $house->titolo }}</h2>
                         <section class="house-info">
                             @if(($house->foto)!=null)
@@ -37,11 +37,11 @@
                                 </label>
                                 <br>
                                 <label class="house-detail">
-                                    Data inizio disponibilità: {{ date('Y/m/d H:i:s', $house->data_inizio) }}
+                                    Data inizio disponibilità: {{ date('Y/m/d', $house->data_inizio) }}
                                 </label>
                                 <br>
                                 <label class="house-detail">
-                                    Data fine disponibilità: {{ date('Y/m/d H:i:s', $house->data_fine) }}
+                                    Data fine disponibilità: {{ date('Y/m/d', $house->data_fine) }}
                                 </label>
                                 <br>
                                 <label class="house-detail" id="house-price">
@@ -55,8 +55,9 @@
             @empty($myhouses)
                 {{ Form::label('', 'Non hai ancora nessuna casa', ['class' => 'input'])}}
             @endempty()
+
         </div>
-        <a href="{{route('newHouse')}}" class="submit middable_submit'">Inserisci un nuovo anuncio</a>
+        <a href="{{route('newHouseForm')}}" class="submit middable_submit'">Inserisci un nuovo annuncio</a>
     </div>
 </div>
 

@@ -125,7 +125,7 @@
                     </ul>
                     @endif
                     <section class="filter-section middable-section">
-                        {!! Form::checkbox('wifi', 'true', ['class' => 'filter-radio']) !!}
+                        {!! Form::checkbox('wifi', 'true',false, ['class' => 'filter-radio']) !!}
                         {!!Form::label('','wifi', ['class' => 'filter-parameter-text']) !!}
                         @if ($errors->first('wifi'))
                         <ul class="errors">
@@ -137,7 +137,7 @@
                         @endif
                     </section>  
                     <section class="filter-section middable-section">
-                        {!! Form::checkbox('tv', 'true', ['class' => 'filter-radio']) !!}
+                        {!! Form::checkbox('tv', 'true',false, ['class' => 'filter-radio']) !!}
                         {!! Form::label( '','TV', ['class' => 'filter-parameter-text']) !!}
                         @if ($errors->first('tv'))
                         <ul class="errors">
@@ -149,7 +149,7 @@
                         @endif
                     </section>  
                     <section class="filter-section middable-section">
-                        {!! Form::checkbox('terrazza', 'true', ['class' => 'filter-radio']) !!}
+                        {!! Form::checkbox('terrazza', 'true', false,['class' => 'filter-radio']) !!}
                         {!! Form::label( '','Terrazza', ['class' => 'filter-parameter-text']) !!}
                         @if ($errors->first('terrazza'))
                         <ul class="errors">
@@ -186,7 +186,7 @@
                         @endif
                         {!! Form::label('','Servizi', ['class' => 'filter-parameter-text']) !!}
                         <section class="filter-section middable-section">
-                            {!! Form::checkbox('Acucina', true, ['class' => 'filter-radio']) !!}
+                            {!! Form::checkbox('Acucina', true,false, ['class' => 'filter-radio']) !!}
                             {!! Form::label('', 'Cucina', ['class' => 'filter-parameter-text']) !!}
                             @if ($errors->first('Acucina'))
                             <ul class="errors">
@@ -198,7 +198,7 @@
                             @endif
                         </section>  
                         <section class="filter-section middable-section">
-                            {!! Form::checkbox('Asoggiorno', true, ['class' => 'filter-radio']) !!}
+                            {!! Form::checkbox('Asoggiorno', true,false, ['class' => 'filter-radio']) !!}
                             {!! Form::label('', 'Locale Ricreativo', ['class' => 'filter-parameter-text']) !!}
                             @if ($errors->first('Asoggiorno'))
                             <ul class="errors">
@@ -237,7 +237,7 @@
                         </ul>
                         @endif
                         <section class="filter-section middable-section">
-                            {!! Form::checkbox('Pstudio', true, ['class' => 'filter-radio']) !!}
+                            {!! Form::checkbox('Pstudio', true,false, ['class' => 'filter-radio']) !!}
                             {!! Form::label('', 'Angolo Studio', ['class' => 'filter-parameter-text']) !!}
                             @if ($errors->first('Pstudio'))
                             <ul class="errors">

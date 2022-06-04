@@ -13,6 +13,8 @@ class Casa extends Model
     
     protected $guarded = ['id_casa'];
     protected $fillable = [
+        'titolo',
+        'descrizione',
         'regione',	
         'via',	
         'citta',	

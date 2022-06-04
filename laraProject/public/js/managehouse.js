@@ -33,11 +33,11 @@ $(document).ready(function(){
         const apartment = $("#filter-type-apartment");
         const bed = $("#filter-type-bed");
         switch (parseInt(selected)){
-            case 0:
+            case 1:
                 apartment.show("slow", "swing");
                 bed.hide("slow", "swing");
                 break;
-            case 1: 
+            case 0: 
                 apartment.hide("slow", "swing");
                 bed.show("slow", "swing");
                 break;

@@ -51,7 +51,7 @@ class newCasaRequest extends FormRequest
             'eta_max' => 'integer|min:18|max:100|nullable',
             'sesso' => 'string|nullable',
             'foto' => 'image|nullable',
-            'id_locatore'=> 'integer|required',
+            //'id_locatore'=> 'integer|required',
         ];
     }
 }

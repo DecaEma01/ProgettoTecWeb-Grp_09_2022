@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Resources\Casa;
 use App\Models\Resources\Utente;
-
+use Illuminate\Support\Facades\Auth;
 // dd(Carbon::now()->timestamp);
 //dd(strtotime('19-08-2022'));
 
@@ -47,14 +47,16 @@ class houseModel extends Model
       
    }*/
 
-   public function getMyHouses(){
-        if (Auth::id() != null){
-            $uid = Auth::id();
+   public function getCaseLocatore(){
+        if (true/*Auth::id() != null*/){
+            $uid =1; //Auth::id();
             $this->_housesModel = Casa::where('id_locatore', $uid)->get();
+            
             if (count($this->_housesModel) > 0){
                 return view('myhouses')->with('myhouses', $this->_housesModel);
-            }else{
-                return null;
+            }
+            else{
+                return view('myhouses'); //la vista se non ci sono case ritorna un messaggio che lo indica
             }
         }else{
             return view('noperm');
@@ -73,11 +75,13 @@ class houseModel extends Model
    */
 
 
-   public function salvaSpostaNewImg($request,$formImgName) {
+   //."random_int(1,1000000)"
 
-       $this->$newImgName=time().'-'."random_int(1,1000000)".$request->formImgName.'.'.$request->formImgName->extension();
-       $request->input('foto')->move(public_path('images'),$newImgName);
-       return  $this->$newImgName;
+   public function salvaSpostaNewImg($request,$oldImgName) {
+
+       $this->newImgName=time().'-'.random_int(1,1000000000).'-'.$oldImgName;//.'.'.$request->file('foto')->extension();
+       $request->file('foto')->move(public_path('images'),$this->newImgName);
+       return  $this->newImgName;
        //il nome va comunque salvato nel database
 
    }
@@ -86,8 +90,8 @@ class houseModel extends Model
 
 
    public function inserisciCasa(
-    $titolo,
-    $descrizione,
+   $titolo,
+   $descrizione,
    $regione,	
    $via,	
    $citta,	
@@ -161,15 +165,13 @@ class houseModel extends Model
    $citta,	
    $data_inizio,	
    $data_fine,	
-   $assegnata,
+   //$assegnata,
    $tipo,	
    $prezzo,	
    $mq,	
    $wifi,	
    $tv,	
    $terrazza,	
-   $piano,	
-   $arredato,	
    $eta_min,	
    $eta_max,	
    $sesso,	
@@ -183,7 +185,7 @@ class houseModel extends Model
    $Pstudio){
        
        $miaCasa=new Casa;
-       $miaCasa=trovaCasa($id)->update([
+       $miaCasa=$this->trovaCasa($id)->update([
 
       'titolo'=> $titolo,
       'descrizione'=> $descrizione,
@@ -192,9 +194,9 @@ class houseModel extends Model
       'citta'=> $citta,
       'titolo'=>$titolo,
       'descrizione'=>$descrizione,
-      'data_inizio'=> strtotime($data_inizio),	
-      'data_fine'=> strtotime($data_fine),	
-      'assegnata'=> $assegnata,	
+      'data_inizio'=> $data_inizio,	
+      'data_fine'=> $data_fine,	
+      //'assegnata'=> $assegnata,	
       'tipo'=> $tipo,
       'prezzo'=> $prezzo,	
       'mq'=> $mq,	

@@ -121,7 +121,7 @@ Route::get('/faqs', 'FaqsController@list')
 Route::get('/faq/new', 'FaqsController@create')
     ->name('new-faq');
 
-//mi ristituisce la forma popolata
+//mi ristituisce la form popolata
 Route::get('/faq/{id_faq}', 'FaqsController@showFaq')
         ->name('faq');
 
@@ -150,7 +150,7 @@ Route::get('add-faq/', function () {
 
 //rotte case provvisorie-----------------------------------
 
-
+/*
 Route::get('house/', function () {
     return view('house');
 });
@@ -162,12 +162,18 @@ Route::get('add-house/', function () {
 Route::get('edit-house/', function () {
     return view('edit-house');
 })->name('edit-house');
+*/
 
+
+//rotte autenticazione laravel
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+//rotte case -----------------------------------
 
 
 //visualizza il catalogo non filtrato
@@ -185,10 +191,22 @@ Route::post('filterCatalog/','PublicController@filtraCatalogo')->name('filterCat
 Route::get('myHouses/','PublicController@vedilistaCaseLocatore')
     ->name('myHouses');
 
-//fa visualizzare la form per aggiungere una nuova casa dal locatore
-Route::get('newHouseForm/','PublicController@showCasaForm')
+//fa visualizzare la form per aggiungere una nuova casa del locatore
+Route::get('newHouseForm/','PublicController@showNewCasaForm')
     ->name('newHouseForm');
 
-//fa aggiungere una nuova casa dal locatore
+//fa aggiungere una nuova casa del locatore
 Route::post('newHouse/','PublicController@addCasa')
     ->name('newHouse');
+
+//fa visualizzare la form per modificare una casa già inserita del locatore
+Route::get('editHouseForm/{id}','PublicController@showModCasaForm')
+    ->name('editHouseForm');
+
+//fa effettuare la modifica di una casa del locatore
+Route::post('editHouse/','PublicController@updateCasa')
+    ->name('editHouse');
+
+//fa visualizzare la lista delle case del locatore
+Route::get('showCaseLocatore/','PublicController@vedilistaCaseLocatore')
+    ->name('showCaseLocatore');
