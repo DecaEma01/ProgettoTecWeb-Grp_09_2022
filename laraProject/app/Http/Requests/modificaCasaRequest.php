@@ -30,7 +30,7 @@ class modificaCasaRequest extends FormRequest
             'data_inizio' => 'date|required',
             'data_fine' => 'date|required',
             'citta' => 'alpha|max:255|required',
-            'titolo'=>'alpha|max:255|required',
+            'titolo'=>'string|max:255|required',
             'descrizione'=>'string|max:2000|required',
             //'assegnata' => 'boolean|required',
             'tipo' => 'boolean|required',

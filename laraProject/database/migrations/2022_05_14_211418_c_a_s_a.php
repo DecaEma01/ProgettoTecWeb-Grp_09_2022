@@ -15,16 +15,16 @@ class CASA extends Migration
     {
         Schema::create('casa', function (Blueprint $table) {
             $table->bigIncrements('id_casa');//->primary();
-            $table->text('regione')->nullable();
-            $table->text('via')->nullable();
-            $table->text('citta')->nullable();
-            $table->text('titolo')->nullable();
-            $table->text('descrizione')->nullable();
-            $table->unsignedBigInteger('data_inizio')->nullable();
-            $table->unsignedBigInteger('data_fine')->nullable();
+            $table->text('regione');
+            $table->text('via');
+            $table->text('citta');
+            $table->text('titolo');
+            $table->text('descrizione');
+            $table->unsignedBigInteger('data_inizio');
+            $table->unsignedBigInteger('data_fine');
             $table->boolean('assegnata')->nullable();
-            $table->boolean('tipo')->nullable();
-            $table->float('prezzo')->nullable();
+            $table->boolean('tipo');
+            $table->float('prezzo');
             $table->integer('mq')->nullable();
             $table->boolean('wifi')->nullable();
             $table->boolean('tv')->nullable();

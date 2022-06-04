@@ -92,7 +92,7 @@
             {{ Form::label('', 'Disponibilità', ['class' => 'filter-title-label']) }}
             <div class="filter-parameter-container">
                 <label class="filter-parameter-text">Dal: </label>
-                <input name="data_inizio" type="date" class="input" value={{gmdate("Y-m-d", $casaLocatore->data_fine)}} id="date-min">
+                <input name="data_inizio" type="date" class="input" value={{gmdate("Y-m-d", $casaLocatore->data_inizio)}} id="date-min">
                 @if ($errors->first('data_inizio'))
                 <ul class="errors">
                     <br>

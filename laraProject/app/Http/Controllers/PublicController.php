@@ -63,11 +63,11 @@ class PublicController extends Controller
         $mq = $request -> input('mq');
 
         if($request-> input('tipo') == '0')
-        $tipo=null;
+        $tipo='ap';
         if($request-> input('tipo') == '1')
-        $tipo=true;
+        $tipo='a';
         if($request-> input('tipo') == '2')
-        $tipo=false;
+        $tipo='p';
         //$tipo = $request -> input('tipo');
         //dd($tipo);
         $data_inizio = strtotime($request -> input('data_inizio'));
@@ -100,12 +100,12 @@ class PublicController extends Controller
         if($request-> input('citta') == '')
         $citta=null;
 
-        if($tipo==true){
+        if($tipo=='a'){
             $Pletti_camera=null;
             $Pletti_app=null;
             $Pstudio=null;
         }
-        if($tipo==false){
+        if($tipo=='p'){
             $Anum_camere=null;
             $Anum_letti=null;
             $Acucina=null;
@@ -169,8 +169,8 @@ class PublicController extends Controller
         $Pletti_camera= $request -> input('Pletti_camera');		
         $Pletti_app= $request -> input('Pletti_app');		
         $Pstudio= $request -> input('Pstudio');		
-        $id_locatore= Auth::id();	   //mi serve dalla sessione
-        //$id_locatore=1;
+        //$id_locatore= Auth::id();	   //mi serve dalla sessione
+        $id_locatore=1;
 
         if($request-> input('sesso') == '0')
         $sesso=null;
@@ -198,7 +198,7 @@ class PublicController extends Controller
         
         
         //return view('home');
-        return redirect()->back(); // magari una vista per dire inserimento eseguito con successo
+        return $this->vedilistaCaseLocatore() ; // magari una vista per dire inserimento eseguito con successo
    
         /*
         questa roba non serve

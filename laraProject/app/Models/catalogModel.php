@@ -39,9 +39,14 @@ class catalogModel extends Model
         //dd([$mq,$tipo,$data_inizio,$data_fine,$citta,$regione,$AnumCamere,$AnumLetti,$Acucina,$Asoggiorno,$Pletti_camera,$Pletti_app,$Pstudio,$min,$max]);
         //dd($tipo);
 
-        if($tipo==false)
+        //dd($tipo);
+        /*
+        if($tipo!=null && $tipo==false){
         $tipo=3;
+        }
+        */
 
+        //dd($tipo);
 
         $temp=new Casa;
         $temp = $temp->newQuery();
@@ -61,33 +66,33 @@ class catalogModel extends Model
         if($regione!=null)
             $temp->where('regione','=',$regione);
                     
-        if($tipo!=false and $AnumCamere!=null)
+        if(($tipo=='ap' or $tipo=='a') and $AnumCamere!=null)
             $temp->where('AnumCamere','=',$AnumCamere)
             ->orWhere('AnumCamere','=',null);
   
-        if($tipo!=false and $AnumLetti!=null)
+        if(($tipo=='ap' or $tipo=='a') and $AnumLetti!=null)
             $temp->where('AnumLetti','=',$AnumLetti)
             ->orWhere('AnumLetti','=',null);
         
-        if($tipo!=false and $Acucina!=null){
-            $temp->where('Acucina','=',$Acucina)
+        if(($tipo=='ap' or $tipo=='a') and $Acucina!=null){
+            $temp->where('Acucina','=',true)
             ->orWhere('Acucina','=',null);
         }
                 
-        if($tipo!=false and $Asoggiorno!=null)
-            $temp->where('Asoggiorno','=',$Asoggiorno)
+        if(($tipo=='ap' or $tipo=='a') and $Asoggiorno!=null)
+            $temp->where('Asoggiorno','=',true)
             ->orWhere('Asoggiorno','=',null);
        
-        if($tipo!=true and $Pletti_camera!=null)
+        if(($tipo=='ap' or $tipo=='p') and $Pletti_camera!=null)
             $temp->where('Pletti_camera','=',$Pletti_camera)
             ->orWhere('Pletti_camera','=',null);
         
-        if($tipo!=true and $Pletti_app!=null)
+        if(($tipo=='ap' or $tipo=='p') and $Pletti_app!=null)
             $temp->where('Pletti_app','=',$Pletti_app)
             ->orWhere('Pletti_app','=',null);
        
-        if($tipo!=true and $Pstudio!=null)
-            $temp->where('Pstudio','=',$Pstudio)
+        if(($tipo=='ap' or $tipo=='p') and $Pstudio!=null)
+            $temp->where('Pstudio','=',true)
             ->orWhere('Pstudio','=',null);
        
         if($min!=null)
@@ -95,16 +100,25 @@ class catalogModel extends Model
    
         if($max!=null)
             $temp->where('prezzo','<=',$max);
-            
-        if($wifi!=null)
-            $temp->where('wifi','=',$wifi);
         
-        if($tv!=null)
-            $temp->where('tv','=',$tv);
+        if($wifi==true)
+            $temp->where('wifi','=',true);
+        
+        if($tv==true)
+            $temp->where('tv','=',true);
       
-        if($terrazza!=null)
-            $temp->where('terrazza','=',$terrazza);
+        if($terrazza==true)
+            $temp->where('terrazza','=',true);
             
+        if($tipo!='ap'){
+            if($tipo=='a')
+            $temp->where('tipo','=',true);
+            if($tipo=='p')
+            $temp->where('tipo','=',false);
+        }
+
+        
+        /*
         if($tipo!=null && $tipo!=3 ){
             $temp->where('tipo','=',$tipo ? 1 : 0);
             //dd($temp);
@@ -114,6 +128,7 @@ class catalogModel extends Model
             $temp->where('tipo','=','0');
             //dd($temp);
             }
+        */
 
       
         //dd($temp);
